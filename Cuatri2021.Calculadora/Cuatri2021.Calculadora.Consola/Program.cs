@@ -235,9 +235,19 @@ namespace Cuatri2021.Calculadora.Consola
                                     break;
                                 case 6: //// CAPICUA ////
 
+
+
+
+
+
                                     opcionRecursiva = 0;
                                     break;
                                 case 7: //// ANAGRAMA ////
+
+
+
+
+
 
                                     opcionRecursiva = 0;
                                     break;
