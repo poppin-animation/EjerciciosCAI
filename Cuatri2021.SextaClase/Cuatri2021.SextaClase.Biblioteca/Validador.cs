@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NegocioDeVentaDeProductos.Biblioteca
+namespace Cuatri2021.SextaClase.Biblioteca
 {
     public class Validador
     {
