@@ -57,11 +57,8 @@ namespace Cuatri2021.SextaClase.Biblioteca
         {
             // validar que datos  no sea null
             // validar que repuesto no sea null
-            //validar que no exista ya el repuesto cargado. con ese codigo 
+            // validar que el cliente + mascota no exista. Si existe devolver FALSE
 
-            int nuevoCodigo = TraerNuevoCodigo();
-
-            Repuesto repuesto = new Repuesto();
 
             _listaProductos.Add(repuesto);
 
@@ -69,6 +66,9 @@ namespace Cuatri2021.SextaClase.Biblioteca
 
         }
         /// <summary>
+        /// 
+        //int nuevoCodigo = TraerNuevoCodigo();
+        //Repuesto repuesto = new Repuesto();
         /// private int _codigo;
         /// private string _nombre;
         ///private double _precio;
@@ -80,37 +80,75 @@ namespace Cuatri2021.SextaClase.Biblioteca
 
         public void QuitarRepuesto(int codigo)
         {
+            foreach (Repuesto repuesto in _listaProductos)
+            {
+                if(repuesto.Codigo == codigo)
+                {
+                    _listaProductos.Remove(repuesto);
+                }
 
+            }
         }
         public void ModificarPrecio(int codigo, double precio)
         {
-
+            foreach (Repuesto repuesto in _listaProductos)
+            {
+                if (repuesto.Codigo == codigo)
+                {
+                    repuesto.SetPrecio(precio);
+                }
+            }
         }
+
         public void AgregarStock(int codigo, int stock)
         {
-
+            foreach (Repuesto repuesto in _listaProductos)
+            {
+                if (repuesto.Codigo == codigo)
+                {
+                    repuesto.Stock = repuesto.Stock + stock;
+                }
+            }
         }
+
         public void QuitarStock(int codigo, int stock)
         {
+            foreach (Repuesto repuesto in _listaProductos)
+            {
+                if (repuesto.Codigo == codigo)
+                {
+                    repuesto.Stock = repuesto.Stock - stock;
+                }
+            }
 
         }
 
         public List<Categoria> TraerPorCategoria(int cat)
         {
-            List<Categoria> lista = new List<Categoria>();
-            
 
-            foreach (int categoria in ListaProductos.Categoria)
+            foreach (Repuesto repuesto in _listaProductos)
             {
-                lista.Add(rep);
-
+                if (repuesto.GetCategoria() == codigo)
+                {
+                    repuesto.Stock = repuesto.Stock + stock;
+                }
             }
 
-            for (int i = 1; i <= cantProductosmax; i++)
-            {
-                Producto prod = new Producto(i, $"Producto n° {i}");
-                productos.Add(prod);
-            }
+
+            //List<Categoria> lista = new List<Categoria>();
+
+
+            //foreach (int categoria in ListaProductos.Categoria)
+            //{
+            //    lista.Add(rep);
+
+            //}
+
+            //for (int i = 1; i <= cantProductosmax; i++)
+            //{
+            //    Producto prod = new Producto(i, $"Producto n° {i}");
+            //    productos.Add(prod);
+            //}
 
 
             return lista;

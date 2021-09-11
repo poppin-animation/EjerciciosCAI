@@ -43,6 +43,11 @@ namespace Cuatri2021.SextaClase.Biblioteca
             private set { this._precio = value; } // --> hacer un set privado ya que solo se podra modificar este valor accediendo al metodo SETPRECIO
         }
 
+        public Categoria GetCategoria()
+        { return this._categoria; }
+        public void SetCategoria(Categoria value)
+        { this._categoria = value; }
+
         public void SetPrecio(double precio) ///////////////////REVISAR EL ACCESS MODIFIER------------------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<°°°°||
         {
 
