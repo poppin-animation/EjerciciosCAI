@@ -15,7 +15,10 @@ namespace Cuatri2021.SextaClase.Biblioteca
         private double _precio;
         private int _stock;
         private Categoria _categoria;
-
+        ///como quiero tratar la categoría ? ya existente? tengo que traerla ?  
+        ///pedirla por parametro? exclucyente para crear un repuesto ?  
+        ///segun uml parece ser 1 a 0. osea que puede por default, ser null . 
+        ///
 
 
         //ATRIBUTOS DE CLASE --> PUBLICAS ENCAPSULADAS
@@ -74,8 +77,7 @@ namespace Cuatri2021.SextaClase.Biblioteca
             //estamos definiendo un metodo que ya esta definido en el arbol para la clase objeto. 
             //ToString es el POLIMORFISMO MAS USADO se define 99% de las veces para subsanar ese error
             //es VIRTUAL y por eso permite sobreescribir el miembro en clases derivadas. 
-            ///typeof(Repositor).Name me trae el nombre de la clase
-            return string.Format($"{this._idProducto} - {this._nombreProducto} - Cantidad: {this._cantidad} - Precio: ${this._precio}.-");
+            return string.Format($"{this._codigo} - {this._nombre} - Cantidad: {this._stock} - Precio: ${this._precio}.-");
 
         }
 
