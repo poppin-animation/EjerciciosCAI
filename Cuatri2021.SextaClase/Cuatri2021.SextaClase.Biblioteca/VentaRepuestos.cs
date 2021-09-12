@@ -123,34 +123,18 @@ namespace Cuatri2021.SextaClase.Biblioteca
 
         }
 
-        public List<Categoria> TraerPorCategoria(int cat)
+        public List<Repuesto> TraerPorCategoria(int codigo)
         {
+            List<Repuesto> lista = new List<Repuesto>();
 
             foreach (Repuesto repuesto in _listaProductos)
             {
-                if (repuesto.GetCategoria() == codigo)
+                if (repuesto.GetCategoria().Codigo == codigo)
                 {
-                    repuesto.Stock = repuesto.Stock + stock;
+                    lista.Add(repuesto);
                 }
             }
-
-
-            //List<Categoria> lista = new List<Categoria>();
-
-
-            //foreach (int categoria in ListaProductos.Categoria)
-            //{
-            //    lista.Add(rep);
-
-            //}
-
-            //for (int i = 1; i <= cantProductosmax; i++)
-            //{
-            //    Producto prod = new Producto(i, $"Producto n° {i}");
-            //    productos.Add(prod);
-            //}
-
-
+            
             return lista;
         }
 
