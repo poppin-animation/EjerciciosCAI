@@ -9,11 +9,10 @@ namespace Cuatri2021.Facultad.Biblioteca
     public abstract class Persona
     {
         //ATRIBUTOS PRIVADOS
-        private string _apellido;
-        private string _nombre;
-        private DateTime _fechaNac;
+        protected string _apellido;
+        protected string _nombre;
+        protected DateTime _fechaNac;
        
-
 
 
         //PROPIEDADES PUBLICAS
@@ -36,8 +35,19 @@ namespace Cuatri2021.Facultad.Biblioteca
                 //(la fecha de hoy, menos la fecha de nacimiento) en dias.... dividido 365 para calcular años.
                 return edad;
             }
-         
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
         //CONSTRUCTOR
 

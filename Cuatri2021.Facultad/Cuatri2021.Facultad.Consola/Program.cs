@@ -15,11 +15,11 @@ namespace Cuatri2021.Facultad.Consola
         static void Main(string[] args)
         {
 
-            Persona persona = new Persona();
-            persona.Nombre = "Florencia Soledad";
-            persona.Apellido = "Sueiro";
-            Console.WriteLine(persona.GetNombreCompleto());
-            Console.ReadLine();
+            //Persona persona = new Persona();
+            //persona.Nombre = "Florencia Soledad";
+            //persona.Apellido = "Sueiro";
+            //Console.WriteLine(persona.GetNombreCompleto());
+            //Console.ReadLine();
 
         }
     }

@@ -29,7 +29,10 @@ namespace Cuatri2021.Facultad.Biblioteca
 
 
         //CONSTRUCTOR
+        public Alumno() : base()
+        {
 
+        }
 
 
 
