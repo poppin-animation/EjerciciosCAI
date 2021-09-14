@@ -57,7 +57,7 @@ namespace Cuatri2021.Facultad.Biblioteca
         //METODOS
         public abstract string GetCredencial();
 
-        protected string GetNombreCompleto()
+        protected virtual string GetNombreCompleto()
         {
             string nombreCompleto = this._nombre + " " + this._apellido;
 

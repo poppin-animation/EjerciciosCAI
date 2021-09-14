@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuatri2021.Facultad.Biblioteca
 {
-    class Salario
+    public class Salario
     {
         //ATRIBUTOS PRIVADOS
         private double _bruto;
@@ -58,7 +58,7 @@ namespace Cuatri2021.Facultad.Biblioteca
         public double GetSalarioNeto()
         {
             double salarioNeto;
-            salarioNeto = _bruto * _descuentos; //Esta bien hecho este calculo ?  ? ? es divvidido ?  es menos ? ? ? ?
+            salarioNeto = _bruto - _descuentos; //Esta bien hecho este calculo ?  ? ? es divvidido ?  es menos ? ? ? ?
             return salarioNeto;
             //consultar si es necesario definir la FECHA para la cual estoy buscando el salario neto. 
         }

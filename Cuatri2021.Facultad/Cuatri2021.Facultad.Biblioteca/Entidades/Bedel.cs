@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuatri2021.Facultad.Biblioteca
 {
-    class Bedel : Empleado
+    public class Bedel : Empleado
     {
         //ATRIBUTOS PRIVADOS
         protected string _apodo;
@@ -28,7 +28,12 @@ namespace Cuatri2021.Facultad.Biblioteca
 
 
         //METODOS
+        protected override string GetNombreCompleto()
+        {
+            string nombreCompleto = this._nombre + " " + this._apellido;
 
+            return nombreCompleto;
+        }
 
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuatri2021.Facultad.Biblioteca
 {
-    class Alumno : Persona
+    public class Alumno : Persona
     {
         //ATRIBUTOS PRIVADOS
         private int _codigo;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuatri2021.Facultad.Biblioteca
 {
-    class Directivo
+    public class Directivo : Empleado
     {
         //ATRIBUTOS PRIVADOS
 
@@ -25,7 +25,12 @@ namespace Cuatri2021.Facultad.Biblioteca
 
         //METODOS
 
+        protected override string GetNombreCompleto()
+        {
+            string nombreCompleto = this._nombre + " " + this._apellido;
 
+            return nombreCompleto;
+        }
 
 
 

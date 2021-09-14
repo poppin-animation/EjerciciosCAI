@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuatri2021.Facultad.Biblioteca
 {
-    class Empleado : Persona
+    public class Empleado : Persona
     {
         //ATRIBUTOS PRIVADOS
         private DateTime _fechaIngreso;
@@ -77,6 +77,14 @@ namespace Cuatri2021.Facultad.Biblioteca
         {
             return "sth";
         }
+
+        protected override string GetNombreCompleto()
+        {
+            string nombreCompleto = this._nombre + " " + this._apellido ;
+
+            return nombreCompleto;
+        }
+
 
         public override string ToString()
         {

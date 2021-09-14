@@ -12,15 +12,55 @@ namespace Cuatri2021.Facultad.Consola
 {
     class Program
     {
+
+
+
+        static bool _consolaActiva;
+        static Facultad _facultad;
+
+        static Program()
+        {
+            _consolaActiva = true;
+            _veterinaria = new TiendaMascotas("Santa Elena", "Monroe 900");
+        }
+
         static void Main(string[] args)
         {
+            Console.WriteLine("Bienvenida a la veterinaria " + _veterinaria.Nombre);
 
-            //Persona persona = new Persona();
-            //persona.Nombre = "Florencia Soledad";
-            //persona.Apellido = "Sueiro";
-            //Console.WriteLine(persona.GetNombreCompleto());
-            //Console.ReadLine();
+            while (_consolaActiva)
+            {
+
+
+                Console.Clear();
+                DesplegarMenu();
+                string opcionMenu = Console.ReadLine();
+
+                switch (opcionMenu.ToLower())
+                {
+                    case "1":
+                        // Lista fichas de la veterinar
+                        ListarFichas();
+                        break;
+                    case "2":
+                        // Agregar una ficha
+                        AgregarFicha();
+                        break;
+                    case "x":
+                        _consolaActiva = false;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida.");
+                        break;
+                }
+
+                Console.WriteLine("Presione una tecla para continuar");
+                Console.ReadLine();
+
+            }
+
 
         }
+
     }
 }
