@@ -29,23 +29,33 @@ namespace Cuatri2021.Facultad.Biblioteca
 
 
         //CONSTRUCTOR
+        public Alumno(int codigo, string nombre, string apellido) : base()
+        {
+            this._codigo = codigo;
+            this._nombre = nombre;
+            this._apellido = apellido;
+        }
+        public Alumno(string nombre, string apellido) : base()
+        {
+            this._nombre = nombre;
+            this._apellido = apellido;
+        }
+
         public Alumno() : base()
         {
 
         }
 
-
-
         //METODOS
         public override string GetCredencial()
         {
-            return "algo";
+            return $"Código {Codigo} - {Apellido}, {Nombre}";
         }
 
 
         public override string ToString()
         {
-            return string.Format($"{this._codigo} - {this.GetNombreCompleto()} ");
+            return this.GetCredencial();
 
         }
 

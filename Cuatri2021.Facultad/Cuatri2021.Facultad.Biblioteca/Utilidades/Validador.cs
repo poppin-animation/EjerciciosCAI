@@ -37,6 +37,20 @@ namespace Cuatri2021.Facultad.Biblioteca.Utilidades
             return opcion;
         }
 
+        public static bool isInt32(String num)
+        {
+            try
+            {
+                Int32.Parse(num);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
         public static double ValidarDouble()
         {
             double numero;
@@ -64,7 +78,7 @@ namespace Cuatri2021.Facultad.Biblioteca.Utilidades
             bool valido = false;
             do
             {
-                if (!int.TryParse(Console.ReadLine(), out numero)) // que no permita ingresar letras y simbolos, solo numeros, y que acepte decimales. 
+                if (!int.TryParse(Console.ReadLine(), out numero)) // que no permita ingresar letras y simbolos, solo numeros
                 {
                     Console.WriteLine("Debe ingresar un número.");
                     Console.ReadKey();
@@ -84,7 +98,7 @@ namespace Cuatri2021.Facultad.Biblioteca.Utilidades
             bool valido = false;
             do
             {
-                if (!int.TryParse(Console.ReadLine(), out numero)) // que no permita ingresar letras y simbolos, solo numeros, y que acepte decimales. 
+                if (!int.TryParse(Console.ReadLine(), out numero)) // que no permita ingresar letras y simbolos, solo numeros, 
                 {
                     Console.WriteLine("Debe ingresar un número.");
                     // Console.ReadKey();

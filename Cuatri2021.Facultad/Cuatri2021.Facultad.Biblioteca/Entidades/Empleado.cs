@@ -11,7 +11,8 @@ namespace Cuatri2021.Facultad.Biblioteca
         //ATRIBUTOS PRIVADOS
         private DateTime _fechaIngreso;
         private int _legajo;
-        private List<Salario> _salarios;
+        private List<Salario> _salarios = new List<Salario>();
+        private Salario _ultimoSalario;
 
 
         //PROPIEDADES PUBLICAS
@@ -28,9 +29,11 @@ namespace Cuatri2021.Facultad.Biblioteca
 
         public Salario UltimoSalario
         {
-            get { return this._salarios.Last(); } //Retrieves LAST objet from list
-            //otra opcion this._salarios[_salarios.Count()-1]
+            get { return _ultimoSalario; }
         }
+        // return this._salarios.Last(); } //Retrieves LAST objet from list
+        //otra opcion this._salarios[_salarios.Count()-1]
+        
 
         public DateTime FechaNacimiento 
         {
@@ -68,6 +71,17 @@ namespace Cuatri2021.Facultad.Biblioteca
 
 
         //CONSTRUCTOR
+        public Empleado(int legajo, string nombre, string apellido) : base()
+        {
+            this._legajo = legajo;
+            this._nombre = nombre;
+            this._apellido = apellido;
+        }
+
+        public Empleado() : base()
+        {
+
+        }
 
 
 
@@ -75,7 +89,7 @@ namespace Cuatri2021.Facultad.Biblioteca
         //METODOS
         public override string GetCredencial()
         {
-            return "sth";
+            return $"Legajo n° {Legajo} - {GetNombreCompleto()} - Salario $ {UltimoSalario}";
         }
 
         protected override string GetNombreCompleto()
@@ -88,7 +102,7 @@ namespace Cuatri2021.Facultad.Biblioteca
 
         public override string ToString()
         {
-            return string.Format($"{this._legajo} - {this.GetNombreCompleto()} ");
+            return GetCredencial();
 
         }
 
