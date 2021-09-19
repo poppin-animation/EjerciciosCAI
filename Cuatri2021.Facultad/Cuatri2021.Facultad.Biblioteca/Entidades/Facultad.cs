@@ -10,9 +10,9 @@ namespace Cuatri2021.Facultad.Biblioteca
     public class Ffacultad
     {
         //ATRIBUTOS PRIVADOS
-        private List<Alumno> _alumnos = new List<Alumno>();
+        private List<Alumno> _alumnos ;
         private int _cantidadSedes;
-        private List<Empleado> _empleados = new List<Empleado>();
+        private List<Empleado> _empleados ;
         private string _nombre;
 
 
@@ -48,7 +48,8 @@ namespace Cuatri2021.Facultad.Biblioteca
         public Ffacultad (String nombre)
         {
             this._nombre = nombre;
-
+            this._alumnos = new List<Alumno>();
+            this._empleados = new List<Empleado>();
         }
 
 
@@ -64,7 +65,7 @@ namespace Cuatri2021.Facultad.Biblioteca
         public void AgregarAlumno(string nombre, string apellido)
         {
             Alumno alumno = new Alumno(nombre, apellido);
-            this._alumnos.Add(alumno);
+            AgregarAlumno(alumno);
         }
 
 
@@ -75,7 +76,7 @@ namespace Cuatri2021.Facultad.Biblioteca
         public void AgregarEmpleado(int legajo, string nombre, string apellido)
         {
             Empleado empleado = new Empleado(legajo, nombre, apellido);
-            this._empleados.Add(empleado);
+            AgregarEmpleado(empleado); //delego responsabilidad al metodo... las validaciones directamente en este método. 
         }
 
 
@@ -127,17 +128,17 @@ namespace Cuatri2021.Facultad.Biblioteca
             return ListaEmpleados.Find(e => e.Legajo == legajo);
         }
 
-        public Empleado TraerEmpleadoPorNombre(string nombre)
+        public List<Empleado> TraerEmpleadoPorNombre(string nombre)
         {
-            Empleado empleado = new Empleado();
+            List<Empleado> listarEmpleado = new List<Empleado>();
             foreach (Empleado e in _empleados)
             {
                 if (e.Nombre == nombre)
                 {
-                    empleado = e;
+                    listarEmpleado.Add(e);
                 }
             }
-            return empleado;
+            return listarEmpleado;
 
             ///#########################################
             //foreach (Empleado e in _empleados)

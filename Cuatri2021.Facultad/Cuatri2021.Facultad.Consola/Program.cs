@@ -93,7 +93,12 @@ namespace Cuatri2021.Facultad.Consola
                             // Listar Empleados por Nombre
                             Console.WriteLine("Ingrese el nombre del empleado a buscar:");
                             string nombre = Validador.ValidarString();
-                            Console.WriteLine(facultad.TraerEmpleadoPorNombre(nombre).ToString());
+                            
+                            List<Empleado> listarEmpleadoPorNombre = facultad.TraerEmpleadoPorNombre(nombre);
+                            foreach (Empleado e in listarEmpleadoPorNombre)
+                            {
+                                Console.WriteLine(e.ToString());
+                            }
                             //ES necesario el Console.Readkey() ? 
                             break;
                         case "5":
@@ -115,9 +120,9 @@ namespace Cuatri2021.Facultad.Consola
                             // Agregar Empleado 
                             Console.WriteLine("Ingrese el Número de Legajo del empleado a agregar");
                             int numLegajo = Validador.ValidarIntPositivo();
-                            Console.WriteLine("Ingrese el nombre del alumno a agregar");
+                            Console.WriteLine("Ingrese el nombre del empleado a agregar");
                             string nombreEmpleado = Validador.ValidarString();
-                            Console.WriteLine("Ingrese el apellido del alumno a agregar");
+                            Console.WriteLine("Ingrese el apellido del empleado a agregar");
                             string apellidoEmpleado = Validador.ValidarString();
                             Empleado empleado = new Empleado(numLegajo, nombreEmpleado, apellidoEmpleado);
                             facultad.AgregarEmpleado(empleado);
@@ -146,7 +151,7 @@ namespace Cuatri2021.Facultad.Consola
                             break;
                         case "9":
                             //Eliminar Empleado
-                            Console.WriteLine("Ingrese el código del alumno a eliminar");
+                            Console.WriteLine("Ingrese el número de Legajo del empleado a eliminar");
                             int legajoEmpleado = Validador.ValidarIntPositivo();
                             Empleado emp = new Empleado();
                             emp = facultad.ListaEmpleados.Find(em => em.Legajo == legajoEmpleado); //lo guardo para recordar los datos y confirmar el borrado
@@ -154,7 +159,7 @@ namespace Cuatri2021.Facultad.Consola
                             //THROW EXCEPTION --> AVISAR SI EL ALUMNO SE PUDO ELIMINAR CORRECTAMENTE
                             Console.WriteLine($"El empleado {emp.ToString()} fue eliminado de manera exitosa.");
                             Console.ReadKey();
-                            al = null;
+                            emp = null;
                             Console.Clear();
                             break;
                         case "10":
@@ -201,6 +206,19 @@ namespace Cuatri2021.Facultad.Consola
             Console.WriteLine("Gracias por usar la app.");
             Console.ReadKey();
         }
+
+
+        private static void AgregarAlumno(Ffacultad facultad)
+        {
+
+        }
+
+
+
+
+
+
+
     }
 
 

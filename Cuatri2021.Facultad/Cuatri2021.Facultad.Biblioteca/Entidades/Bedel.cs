@@ -30,7 +30,7 @@ namespace Cuatri2021.Facultad.Biblioteca
         //METODOS
         protected override string GetNombreCompleto()
         {
-            string nombreCompleto = $"Bedel {Apodo}";
+            string nombreCompleto = $"Bedel {_apodo}";
 
             return nombreCompleto;
         }

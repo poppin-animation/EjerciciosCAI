@@ -89,7 +89,7 @@ namespace Cuatri2021.Facultad.Biblioteca
         //METODOS
         public override string GetCredencial()
         {
-            return $"Legajo n° {Legajo} - {GetNombreCompleto()} - Salario $ {UltimoSalario}";
+            return $"Legajo n° {_legajo} - {GetNombreCompleto()} - Salario $ {_ultimoSalario}";
         }
 
         protected override string GetNombreCompleto()

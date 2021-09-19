@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuatri2021.Facultad.Biblioteca.Utilidades
 {
-    public class Validador
+    public static class Validador
     {
 
         public static int ValidarOpcion(int cantidadOpciones)

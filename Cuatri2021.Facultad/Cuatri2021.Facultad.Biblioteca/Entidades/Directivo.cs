@@ -27,7 +27,7 @@ namespace Cuatri2021.Facultad.Biblioteca
 
         protected override string GetNombreCompleto()
         {
-            string nombreCompleto = $"Sr. Director {Apellido}";
+            string nombreCompleto = $"Sr. Director {_apellido}";
 
             return nombreCompleto;
         }

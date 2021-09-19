@@ -49,7 +49,7 @@ namespace Cuatri2021.Facultad.Biblioteca
         //METODOS
         public override string GetCredencial()
         {
-            return $"Código {Codigo} - {Apellido}, {Nombre}";
+            return $"Código {_codigo} - {_apellido}, {_nombre}";
         }
 
 
