@@ -115,17 +115,17 @@ namespace Cuatri2021.Facultad.Biblioteca
         public List<Alumno> TraerAlumnos()
         {
             
-            return ListaAlumnos;
+            return _alumnos;
         }
 
         public List<Empleado> TraerEmpleados()
         {
-            return ListaEmpleados;
+            return _empleados;
         }
 
         public Empleado TraerEmpleadoPorLegajo(int legajo)
         {
-            return ListaEmpleados.Find(e => e.Legajo == legajo);
+            return _empleados.Find(e => e.Legajo == legajo);
         }
 
         public List<Empleado> TraerEmpleadoPorNombre(string nombre)
@@ -158,7 +158,7 @@ namespace Cuatri2021.Facultad.Biblioteca
         }
         public Empleado TraerEmpleadoPorName(string nombre)
         {
-            return ListaEmpleados.Find(e => e.Nombre == nombre);
+            return _empleados.Find(e => e.Nombre == nombre);
             //Probar cual de los dos anda bien o mejor (Y)
         }
 

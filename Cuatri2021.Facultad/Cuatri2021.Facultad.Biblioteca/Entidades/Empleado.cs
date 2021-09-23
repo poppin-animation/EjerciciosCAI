@@ -71,6 +71,12 @@ namespace Cuatri2021.Facultad.Biblioteca
 
 
         //CONSTRUCTOR
+        //public Empleado(int legajo, string nombre, string apellido) : base()
+        //{
+        //    this._legajo = legajo;
+        //    this._nombre = nombre;
+        //    this._apellido = apellido;
+        //}
         public Empleado(int legajo, string nombre, string apellido) : base()
         {
             this._legajo = legajo;
