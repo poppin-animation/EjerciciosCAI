@@ -202,6 +202,7 @@ namespace Cuatri2021.Facultad.Consola
         {
             int tipoEmpleado;
             string strTipoEmpleado = "";
+            string apodoEmpleado = "";
             do
             {
                 Console.WriteLine("¿Que tipo de Empleado desea agregar?: \n" +
@@ -236,9 +237,9 @@ namespace Cuatri2021.Facultad.Consola
             if (strTipoEmpleado == "Bedel")
             {
                 Console.WriteLine($"Ingrese el apodo del {strTipoEmpleado} a agregar");
-                string apodoEmpleado = Validador.ValidarString();
+                apodoEmpleado = Validador.ValidarString();
             }
-            Empleado empleado = new Empleado(numLegajo, nombreEmpleado, apellidoEmpleado, apodoEmpleado);
+            Empleado empleado = new Empleado(numLegajo, nombreEmpleado, apellidoEmpleado, tipoEmpleado, apodoEmpleado);
             facultad.AgregarEmpleado(empleado);
             //THROW EXCEPTION --> AVISAR SI EL EMPLEADO SE PUDO AGREGAR CORRECTAMENTE
             Console.WriteLine($"El empleado {facultad.ListaEmpleados.Last().ToString()} fue agregado de manera exitosa.");
