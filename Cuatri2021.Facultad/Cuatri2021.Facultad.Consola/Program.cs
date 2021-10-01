@@ -203,14 +203,15 @@ namespace Cuatri2021.Facultad.Consola
             int tipoEmpleado;
             string strTipoEmpleado = "";
             string apodoEmpleado = "";
+            TipoEmpleado tipoDeEmpleado;
             do
             {
                 Console.WriteLine("¿Que tipo de Empleado desea agregar?: \n" +
                 $"1 - Bedel \n" +
                 $"2 - Docente \n" +
-                $"3 - Directivo";);
+                $"3 - Directivo");
                 tipoEmpleado = Validador.ValidarOpcion(3);
-                TipoEmpleado tipoDeEmpleado = TipoEmpleado.Docente;
+                tipoDeEmpleado = TipoEmpleado.Docente;
                 if (tipoEmpleado == 1)
                 {
                     tipoDeEmpleado = TipoEmpleado.Bedel;
@@ -239,8 +240,9 @@ namespace Cuatri2021.Facultad.Consola
                 Console.WriteLine($"Ingrese el apodo del {strTipoEmpleado} a agregar");
                 apodoEmpleado = Validador.ValidarString();
             }
-            Empleado empleado = new Empleado(numLegajo, nombreEmpleado, apellidoEmpleado, tipoEmpleado, apodoEmpleado);
-            facultad.AgregarEmpleado(empleado);
+           
+            facultad.AgregarEmpleado(numLegajo, nombreEmpleado, apellidoEmpleado, tipoDeEmpleado, apodoEmpleado); ;
+
             //THROW EXCEPTION --> AVISAR SI EL EMPLEADO SE PUDO AGREGAR CORRECTAMENTE
             Console.WriteLine($"El empleado {facultad.ListaEmpleados.Last().ToString()} fue agregado de manera exitosa.");
             Console.ReadKey();
@@ -273,7 +275,7 @@ namespace Cuatri2021.Facultad.Consola
         {
             Console.WriteLine("Ingrese el número de Legajo del empleado a eliminar");
             int legajoEmpleado = Validador.ValidarIntPositivo();
-            Empleado emp = new Empleado();
+            Empleado emp ;
             emp = facultad.ListaEmpleados.Find(em => em.Legajo == legajoEmpleado); //lo guardo para recordar los datos y confirmar el borrado
             facultad.EliminarEmpleado(legajoEmpleado);
             //THROW EXCEPTION --> AVISAR SI EL ALUMNO SE PUDO ELIMINAR CORRECTAMENTE
@@ -298,15 +300,15 @@ namespace Cuatri2021.Facultad.Consola
             Alumno a5 = new Alumno(892297, "Rodrigo", "Dente");
             facultad.AgregarAlumno(a5);
 
-            Empleado e1 = new Empleado(893, "Florencia", "Sueiro");
+            Empleado e1 = new Bedel(893, "Florencia", "Sueiro", "Rosa Flor");
             facultad.AgregarEmpleado(e1);
-            Empleado e2 = new Empleado(894, "Antonella", "Orlando");
+            Empleado e2 = new Directivo(894, "Antonella", "Orlando");
             facultad.AgregarEmpleado(e2);
-            Empleado e3 = new Empleado(895, "Sofia", "Pallotta");
+            Empleado e3 = new Docente(895, "Sofia", "Pallotta");
             facultad.AgregarEmpleado(e3);
-            Empleado e4 = new Empleado(896, "Marilin", "Gomez");
+            Empleado e4 = new Docente(896, "Marilin", "Gomez");
             facultad.AgregarEmpleado(e4);
-            Empleado e5 = new Empleado(897, "Rodrigo", "Dente");
+            Empleado e5 = new Directivo(897, "Rodrigo", "Dente");
             facultad.AgregarEmpleado(e5);
         }
     }

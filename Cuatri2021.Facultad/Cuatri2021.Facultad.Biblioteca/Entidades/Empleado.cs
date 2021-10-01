@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cuatri2021.Facultad.Biblioteca
 {
-    public class Empleado : Persona
+    public abstract class Empleado : Persona
     {
         //ATRIBUTOS PRIVADOS
         private DateTime _fechaIngreso;

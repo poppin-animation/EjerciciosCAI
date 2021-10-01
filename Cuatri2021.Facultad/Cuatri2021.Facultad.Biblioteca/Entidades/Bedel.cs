@@ -23,9 +23,11 @@ namespace Cuatri2021.Facultad.Biblioteca
 
 
         //CONSTRUCTOR
+        public Bedel(int legajo, string nombre, string apellido, string apodo) : base(legajo, nombre, apellido)
+        {
+            this._apodo = apodo;
 
-
-
+        }
 
         //METODOS
         protected override string GetNombreCompleto()

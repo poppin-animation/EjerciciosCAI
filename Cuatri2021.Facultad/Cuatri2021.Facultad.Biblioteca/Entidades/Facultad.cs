@@ -73,9 +73,23 @@ namespace Cuatri2021.Facultad.Biblioteca
         {
             this._empleados.Add(empleado);
         }
-        public void AgregarEmpleado(int legajo, string nombre, string apellido)
+       
+        public void AgregarEmpleado(int legajo, string nombre, string apellido, TipoEmpleado tipoEmpleado, string apodo)
         {
-            Empleado empleado = new Empleado(legajo, nombre, apellido);
+            Empleado empleado;
+            if (tipoEmpleado == TipoEmpleado.Bedel)
+            {
+                empleado = new Bedel(legajo, nombre, apellido, apodo);
+            }
+            else if(tipoEmpleado == TipoEmpleado.Docente)
+            {
+                empleado = new Docente(legajo, nombre, apellido);
+            }
+            else
+            {
+                empleado = new Directivo(legajo, nombre, apellido);
+            }
+            
             AgregarEmpleado(empleado); //delego responsabilidad al metodo... las validaciones directamente en este método. 
         }
 

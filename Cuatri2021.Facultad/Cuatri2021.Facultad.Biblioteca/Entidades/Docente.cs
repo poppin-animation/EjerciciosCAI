@@ -19,7 +19,11 @@ namespace Cuatri2021.Facultad.Biblioteca
 
 
         //CONSTRUCTOR
+        public Docente(int legajo, string nombre, string apellido) : base(legajo, nombre, apellido)
+        {
+       
 
+        }
 
 
 
