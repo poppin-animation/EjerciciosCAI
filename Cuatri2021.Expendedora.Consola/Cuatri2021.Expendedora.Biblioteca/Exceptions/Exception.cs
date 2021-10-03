@@ -8,7 +8,7 @@ namespace Cuatri2021.Expendedora.Biblioteca.Exceptions
 {
     public class SinStockException : Exception
     {
-        public SinStockException(int codigo) : base("No hay stock del producto con código: " + codigo + ". Por favor verifique el dato")
+        public SinStockException(string codigo) : base("No hay stock del producto con código: " + codigo + ". Por favor verifique el dato")
         {
 
         }
@@ -34,7 +34,7 @@ namespace Cuatri2021.Expendedora.Biblioteca.Exceptions
 
     public class CodigoInvalidoException : Exception
     {
-        public CodigoInvalidoException(int codigo) : base("El código: " + codigo + " es inválido. Por favor verifique el dato")
+        public CodigoInvalidoException(string codigo) : base("El código: " + codigo + " es inválido. Por favor verifique el dato")
         {
 
         }

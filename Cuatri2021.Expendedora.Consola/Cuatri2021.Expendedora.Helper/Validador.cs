@@ -67,7 +67,7 @@ namespace Cuatri2021.Expendedora.Biblioteca.Validador
                     valido = true;
                 }
 
-                Console.Clear();
+                //Console.Clear();
             } while (!valido);
             return numero;
         }

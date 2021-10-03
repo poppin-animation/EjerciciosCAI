@@ -37,7 +37,8 @@ namespace Cuatri2021.Expendedora.Biblioteca
 
         public double Dinero 
         {
-            get { return this._dinero; }
+            get { return this._dinero;  }
+            set { this._dinero = value; }
         }
 
         //////////////////CONSTRUCTOR
@@ -46,7 +47,9 @@ namespace Cuatri2021.Expendedora.Biblioteca
         {
             this._encendida = false;
             this._latas = new List<Lata>();
-        }
+            this._capacidad = 50; //la decido yo la capacidad???
+            this._dinero = 0;
+    }
 
 
 
@@ -54,16 +57,76 @@ namespace Cuatri2021.Expendedora.Biblioteca
         ////////////METODOS
         public void AgregarLata(Lata lata)
         {
+            //FALTA VALIDAR QUE EL CODIGO NO ESTE REPETIDO 
+
+            Latas.Add(lata);
+            
 
         }
 
 
-        public Lata ExtraerLata(string codigo, double cantidad)
+        public Lata ExtraerLata(string codigo, double dinero)
         {
-            Lata lata1 = new Lata();
+            Lata buscada = _latas.Find(l => l.Codigo == codigo);
+           
+            // Flujo alternativo 1: El código es inválido
+            if (buscada != null)
+            {
+                //	Flujo alternativo 3: No hay stock de esa lata
+                if (buscada.Cantidad <1)
+                {
+                    //Flujo alternativo 2: El dinero no es suficiente
+                    if (dinero >= buscada.Precio)
+                    {
+                        this._dinero = this._dinero + buscada.Precio;
+                    }
+                    else
+                    {
+                        throw new Cuatri2021.Expendedora.Biblioteca.Exceptions.DineroInsuficienteException();
+                    }
 
-            return lata1;
+                }
+                else
+                {
+                    // THROWSinStockException(int codigo)
+                    throw new Cuatri2021.Expendedora.Biblioteca.Exceptions.SinStockException(codigo);
+                }
+            }
+            else
+            {
+                //Trow CodigoInvalidoException(int codigo)
+                throw new Cuatri2021.Expendedora.Biblioteca.Exceptions.CodigoInvalidoException(codigo);
+            }
+
+            
+            return buscada;
         }
+
+
+
+        public void EncenderMaquina()
+        {
+            this._encendida = true;
+
+        }
+        public bool EstaVacia()
+        {
+
+            if(Latas.Any() == true)
+            {
+                //si la maquina expendedora tiene AL MENOS una lata en la lista, NO esta VACIA, entonces retorno FALSO
+                return false;
+            }
+            else
+            {
+                //si la maquina expendedora NO TIENE NI una lata en la lista, esta VACIA, entonces retorno VERDADERO, ESTA VACIA. 
+                return true;
+            }
+
+
+        }
+
+
 
 
         public string GetBalance()
@@ -80,30 +143,6 @@ namespace Cuatri2021.Expendedora.Biblioteca
             return capacidadRestante;
         }
 
-        public void EncenderMaquina()
-        {
-            this._encendida = true;
-
-        }
-        public bool EstaVacia()
-        {
-
-            if(Latas.Any() == true)
-            {
-                return false;
-            }
-            else
-            {
-                return false;
-            }
-
-
-        }
-
-
-
-
-
 
 
 
@@ -113,4 +152,4 @@ namespace Cuatri2021.Expendedora.Biblioteca
 
 
     }
-    }
+}

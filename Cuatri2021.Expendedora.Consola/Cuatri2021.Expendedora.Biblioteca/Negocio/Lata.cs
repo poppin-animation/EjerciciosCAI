@@ -46,7 +46,15 @@ namespace Cuatri2021.Expendedora.Biblioteca.Negocio
 
         //////////////////CONSTRUCTOR
         ///
-
+        public Lata(string codigo, string nombre, string sabor, double precio, double volumen, int cantidad)
+        {
+            this._codigo = codigo;
+            this._nombre = nombre;
+            this._sabor = sabor;
+            this._precio = precio;
+            this._volumen = volumen;
+            this._cantidad = cantidad;
+        }
 
 
 

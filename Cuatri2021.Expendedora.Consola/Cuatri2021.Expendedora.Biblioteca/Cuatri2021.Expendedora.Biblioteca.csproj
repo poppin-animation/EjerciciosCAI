@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\Excepction.cs" />
+    <Compile Include="Exceptions\Exception.cs" />
     <Compile Include="Negocio\Expendedora.cs" />
     <Compile Include="Negocio\Lata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
