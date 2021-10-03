@@ -127,11 +127,16 @@ namespace Cuatri2021.Facultad.Biblioteca
             {
                 return false;
             }
-            else // de otra manera, retornar verdadero
+            else if (this._legajo == ((Empleado)obj).Legajo)
             {
                 return true;
             }
+            else // de otra manera, retornar verdadero
+            {
+                return false;
+            }
         }
+
 
 
     }

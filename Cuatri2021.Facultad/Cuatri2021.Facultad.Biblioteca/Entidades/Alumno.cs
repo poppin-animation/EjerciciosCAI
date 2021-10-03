@@ -59,7 +59,20 @@ namespace Cuatri2021.Facultad.Biblioteca
 
         }
 
+        public override bool Equals(Object o)
+        {
+            if (o == null)
+            {
+                return false;
+            }
 
+            if (this._codigo == ((Alumno)o).Codigo)
+            {
+                return true;
+            }
+
+            return false;
+        }
 
 
     }

@@ -46,6 +46,7 @@ namespace Cuatri2021.Facultad.Consola
             Console.WriteLine("Bienvenido a " + facultad.Nombre);
             do
             {
+                //METER ACA EL TRY 
                 Console.WriteLine(menu); //mostramos el menú
                                          //capturamos la seleccion
 
