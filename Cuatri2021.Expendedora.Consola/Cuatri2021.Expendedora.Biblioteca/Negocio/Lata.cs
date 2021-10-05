@@ -40,6 +40,7 @@ namespace Cuatri2021.Expendedora.Biblioteca.Negocio
         public int Cantidad
         {
             get { return this._cantidad; }
+            set { this._cantidad = value; }
         }
 
 

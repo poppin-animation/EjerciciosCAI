@@ -67,39 +67,45 @@ namespace Cuatri2021.Expendedora.Biblioteca
 
         public Lata ExtraerLata(string codigo, double dinero)
         {
-            Lata buscada = _latas.Find(l => l.Codigo == codigo);
+            Lata buscada = _latas.Find(x => x.Codigo == codigo);
            
             // Flujo alternativo 1: El código es inválido
-            if (buscada != null)
-            {
-                //	Flujo alternativo 3: No hay stock de esa lata
-                if (buscada.Cantidad <1)
-                {
-                    //Flujo alternativo 2: El dinero no es suficiente
-                    if (dinero >= buscada.Precio)
-                    {
-                        this._dinero = this._dinero + buscada.Precio;
-                    }
-                    else
-                    {
-                        throw new Cuatri2021.Expendedora.Biblioteca.Exceptions.DineroInsuficienteException();
-                    }
-
-                }
-                else
-                {
-                    // THROWSinStockException(int codigo)
-                    throw new Cuatri2021.Expendedora.Biblioteca.Exceptions.SinStockException(codigo);
-                }
-            }
-            else
+            if (buscada == null)
             {
                 //Trow CodigoInvalidoException(int codigo)
                 throw new Cuatri2021.Expendedora.Biblioteca.Exceptions.CodigoInvalidoException(codigo);
+
+            }
+            else
+            {
+                //Flujo alternativo 2: El dinero no es suficiente
+                if (dinero < buscada.Precio)
+                {
+                    // THROWSDineroInsuficienteException()
+                    throw new Cuatri2021.Expendedora.Biblioteca.Exceptions.DineroInsuficienteException();
+                }
+                else
+                {
+                    //	Flujo alternativo 3: No hay stock de esa lata
+                    if (buscada.Cantidad < 1)
+                    {
+                        // THROWSinStockException(int codigo)
+                        throw new Cuatri2021.Expendedora.Biblioteca.Exceptions.SinStockException(codigo);
+                    }
+                    else
+                    {
+                        //// INGRESAR DINERO A LA EXPENDEDORA
+                        this._dinero = this._dinero + buscada.Precio;
+                        //// BAJAR STOCK DE LA LATA EN LA LISTA (1 UNIDAD MENOS)
+                        _latas.Find(l => l.Codigo == codigo).Cantidad = _latas.Find(l => l.Codigo == codigo).Cantidad - 1;
+                        return buscada;
+                    }
+                }
+               
             }
 
             
-            return buscada;
+            
         }
 
 
