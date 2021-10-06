@@ -57,11 +57,28 @@ namespace Cuatri2021.Expendedora.Biblioteca
         ////////////METODOS
         public void AgregarLata(Lata lata)
         {
-            //FALTA VALIDAR QUE EL CODIGO NO ESTE REPETIDO 
+            Lata buscada = _latas.Find(x => x.Codigo == lata.Codigo);
 
-            Latas.Add(lata);
-            
-
+            ///Flujo alternativo 1: El código ya existe
+            if(buscada != null)
+            {
+                //Trow CodigoInvalidoException(int codigo)
+                throw new Cuatri2021.Expendedora.Biblioteca.Exceptions.CodigoInvalidoException(lata.Codigo);
+            }
+            else
+            {
+                ///Flujo alternativo 2: La máquina está llena(capacidad insuficiente)
+                //SI LA CAPACIDAD ESTA COMPLETA (CAPACIDAD - CANTIDAD DE LATAS)=0   ||OR|| CAPACIDAD - NUEVO INGRESO DE LATAS < 0
+                if(GetCapacidadRestante() == 0 || (GetCapacidadRestante()-lata.Cantidad ) < 0)
+                {
+                    //Trow CodigoInvalidoException(int codigo)
+                    throw new Cuatri2021.Expendedora.Biblioteca.Exceptions.CapacidadInsuficienteException(lata.Cantidad);
+                }
+                else 
+                {
+                    Latas.Add(lata);
+                }
+            }
         }
 
 
@@ -98,6 +115,7 @@ namespace Cuatri2021.Expendedora.Biblioteca
                         this._dinero = this._dinero + buscada.Precio;
                         //// BAJAR STOCK DE LA LATA EN LA LISTA (1 UNIDAD MENOS)
                         _latas.Find(l => l.Codigo == codigo).Cantidad = _latas.Find(l => l.Codigo == codigo).Cantidad - 1;
+                        //// devolver la lata a extraer !
                         return buscada;
                     }
                 }
@@ -115,6 +133,7 @@ namespace Cuatri2021.Expendedora.Biblioteca
             this._encendida = true;
 
         }
+
         public bool EstaVacia()
         {
 
@@ -137,16 +156,25 @@ namespace Cuatri2021.Expendedora.Biblioteca
 
         public string GetBalance()
         {
-            string balance = "";
-            return balance;
+            int cantidadLatas = 0;
+            foreach (Lata l in this._latas)
+            {
+                cantidadLatas = cantidadLatas + l.Cantidad;
+            }
+            return "Dinero en máquina: " + this._dinero + "\nStock de latas: " + cantidadLatas;
         }
 
 
 
         public int GetCapacidadRestante()
         {
-            int capacidadRestante = 0;
-            return capacidadRestante;
+            int cantidadLatas = 0;
+            foreach(Lata l in this._latas)
+            {
+                cantidadLatas = cantidadLatas + l.Cantidad;
+            }
+
+            return this._capacidad - cantidadLatas;
         }
 
 

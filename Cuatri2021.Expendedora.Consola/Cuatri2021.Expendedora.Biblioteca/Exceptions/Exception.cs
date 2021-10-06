@@ -16,7 +16,7 @@ namespace Cuatri2021.Expendedora.Biblioteca.Exceptions
 
     public class CapacidadInsuficienteException : Exception
     {
-        public CapacidadInsuficienteException(int cantidad) : base("No hay stock suficiente para hacer frente a la siguiente cantidad: " + cantidad + " de unidades. Por favor verifique el dato")
+        public CapacidadInsuficienteException(int cantidad) : base("No hay capacidad suficiente para ingresar la siguiente cantidad: " + cantidad + " de unidades. Por favor verifique el dato")
         {
 
         }

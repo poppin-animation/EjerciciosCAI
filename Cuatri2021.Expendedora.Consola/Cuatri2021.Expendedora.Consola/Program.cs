@@ -38,83 +38,94 @@ namespace Cuatri2021.Expendedora.Consola
             Console.WriteLine("Bienvenido");
             Console.WriteLine("Ingrese una tecla para continuar.");
             Console.ReadKey();
-            do
+            try
             {
-                Console.Clear();
-                //METER ACA EL TRY 
-                Console.WriteLine(menu); //mostramos el menú
-
-
-                string opcionSeleccionada = Console.ReadLine();//capturamos la seleccion
-                                                               // validamos si el input es válido (en este caso podemos tmb dejar que el switch se encargue en el default.
-
-
-                String[] opcionesValidas = new String[] { "0", "1", "2", "3", "4", "5", "X" };
-
-                if (opcionSeleccionada.ToUpper() == "X")
+                do
                 {
-                    continuarActivo = false;
-                    continue;
-                }
-                else if (Validador.isInt32(opcionSeleccionada) == true)
-                {
-                    switch (opcionSeleccionada)
+                    Console.Clear();
+                    //METER ACA EL TRY 
+                    Console.WriteLine(menu); //mostramos el menú
+
+
+                    string opcionSeleccionada = Console.ReadLine();//capturamos la seleccion
+                                                                   // validamos si el input es válido (en este caso podemos tmb dejar que el switch se encargue en el default.
+
+
+                    String[] opcionesValidas = new String[] { "0", "1", "2", "3", "4", "5", "X" };
+
+                    if (opcionSeleccionada.ToUpper() == "X")
                     {
-                        case "0":
-                            // Encender la máquina Expendedora \n" + 
-                            Program.EncenderMaquina(expendedora);
-
-                            break;
-                        case "1":
-                            // $"1 - Listar Latas Disponibles \n" +
-                            Program.ListarLatas(expendedora);
-
-                            break;
-                        case "2":
-                            //  $"2 - Agregar Lata \n" +
-                            Program.IngresarLata(expendedora);
-
-                            break;
-                        case "3": ////  $"3 - Extraer Lata \n" +
-                            Program.ExtraerLata(expendedora);
-
-                            break;
-                        case "4":
-                            // $"4 - Conocer el Balance \n" +
-                            Program.ObtenerBalance(expendedora);
-
-                            break;
-                        case "5":
-                            //$"5 - Conocer el Stock Disponible \n" +
-                            Program.MostrarStock(expendedora);
-
-                            break;
-                        case "6":
-                            //Agregar datos de prueba
-                            AgregarDatos(expendedora);
-
-                            break;
-                        default:
-                            Console.WriteLine("Opción inválida.");
-                            break;
+                        continuarActivo = false;
+                        continue;
                     }
+                    else if (Validador.isInt32(opcionSeleccionada) == true)
+                    {
+                        switch (opcionSeleccionada)
+                        {
+                            case "0":
+                                // Encender la máquina Expendedora \n" + 
+                                Program.EncenderMaquina(expendedora);
+
+                                break;
+                            case "1":
+                                // $"1 - Listar Latas Disponibles \n" +
+                                Program.ListarLatas(expendedora);
+
+                                break;
+                            case "2":
+                                //  $"2 - Agregar Lata \n" +
+                                Program.IngresarLata(expendedora);
+
+                                break;
+                            case "3": ////  $"3 - Extraer Lata \n" +
+                                Program.ExtraerLata(expendedora);
+
+                                break;
+                            case "4":
+                                // $"4 - Conocer el Balance \n" +
+                                Program.ObtenerBalance(expendedora);
+
+                                break;
+                            case "5":
+                                //$"5 - Conocer el Stock Disponible \n" +
+                                Program.MostrarStock(expendedora);
+
+                                break;
+                            case "6":
+                                //Agregar datos de prueba
+                                AgregarDatos(expendedora);
+
+                                break;
+                            default:
+                                Console.WriteLine("Opción inválida.");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción inválida.");
+                    }
+                    Console.WriteLine("Ingrese una tecla para continuar.");
+                    Console.ReadKey();
+                    // Console.Clear();
                 }
-                else
-                {
-                    Console.WriteLine("Opción inválida.");
-                }
-                Console.WriteLine("Ingrese una tecla para continuar.");
-                Console.ReadKey();
-                // Console.Clear();
+                while (continuarActivo);
             }
-            while (continuarActivo);
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error durante la ejecución del comando. Por favor, intente nuevamente: " + ex.Message);
+            }
+
             Console.WriteLine("Gracias por usar la app.");
             Console.ReadKey();
         }
+        
+   
 
 
         private static void EncenderMaquina(Eexpendedora expendedora)
         {
+            Console.Clear(); 
             expendedora.EncenderMaquina();
             Console.WriteLine("La maquina ha sido correctamente encendida.");
 
@@ -122,6 +133,7 @@ namespace Cuatri2021.Expendedora.Consola
 
         private static void ListarLatas(Eexpendedora expendedora)
         {
+            Console.Clear(); 
             if (expendedora.EstaVacia() == true)
             {
                 Console.WriteLine("La máquina expendedora se encuentra vacía. Ingrese productos para continuar.");
@@ -172,9 +184,17 @@ namespace Cuatri2021.Expendedora.Consola
                     Lata l = new Lata(codigo, nombre, sabor, precio, volumen, cantidad);
                     expendedora.AgregarLata(l);
                 }
-                catch (Exception)
+                catch (CodigoInvalidoException ex)
                 {
-
+                    Console.WriteLine(ex.Message);
+                }
+                catch (CapacidadInsuficienteException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No es posible Ingresar las latas solicitadas." + ex.Message);
                 }
             }
             else
@@ -239,13 +259,48 @@ namespace Cuatri2021.Expendedora.Consola
 
 
         private static void ObtenerBalance(Eexpendedora expendedora)
-        { 
-
+        {
+            Console.Clear();
+            if (expendedora.Encendida == true)
+            {
+                Console.WriteLine(expendedora.GetBalance());
+            }
+            else
+            {
+                Console.WriteLine("La máquina expendedora se encuentra apagada. Enciénda la Máquina para continuar.");
+                //Console.ReadKey();
+            }
         }
-
 
         private static void MostrarStock(Eexpendedora expendedora)
         {
+            ///	Precondiciones 1: La máquina está encendida.
+            Console.Clear();
+            if (expendedora.Encendida == true)
+            {
+                /// Precondiciones 2: La máquina no está vacía.
+                if (expendedora.EstaVacia() == false)
+                {
+                    ///Resultado: Muestra por pantalla la lista de las latas, y por cada lata el siguiente string:
+                    Console.WriteLine("{nombre} - {sabor} $ {precio} / $/L {precio por litro} - [{cantidad}]");
+                    foreach (Lata l in expendedora.Latas)
+                    {
+                        Console.WriteLine(l.ToToString());
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("La máquina expendedora se encuentra vacía. Ingrese productos para continuar.");
+        
+                }
+            }
+            else
+            {
+                Console.WriteLine("La máquina expendedora se encuentra apagada. Enciénda la Máquina para continuar.");
+             
+            }
+
+            
 
         }
 
@@ -253,9 +308,9 @@ namespace Cuatri2021.Expendedora.Consola
         // ---> SWITCH 10
         private static void AgregarDatos(Eexpendedora expendedora)
         {
-            Lata l1 = new Lata("0001", "Coca Cola", "Cola", 50, 340, 100);
-            Lata l2 = new Lata("0002", "Coca Cola", "Cola", 100, 500, 75);
-            Lata l3 = new Lata("0003", "Coto Cola", "Cola", 25, 500, 250);
+            Lata l1 = new Lata("0001", "Coca Cola", "Cola", 5, 340, 10);
+            Lata l2 = new Lata("0002", "Coca Cola", "Cola", 10, 500, 7);
+            Lata l3 = new Lata("0003", "Coto Cola", "Cola", 2, 500, 20);
             expendedora.AgregarLata(l1);
             expendedora.AgregarLata(l2);
             expendedora.AgregarLata(l3);
@@ -269,8 +324,8 @@ namespace Cuatri2021.Expendedora.Consola
 
 
 
-
     }
+
 
 
 }

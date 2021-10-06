@@ -66,7 +66,7 @@ namespace Cuatri2021.Expendedora.Biblioteca.Negocio
         {
             double precioLitro;
 
-            precioLitro = (this._precio * this._volumen);
+            precioLitro = ((this._precio*1000) / this._volumen);
 
             return precioLitro;
 
@@ -75,6 +75,10 @@ namespace Cuatri2021.Expendedora.Biblioteca.Negocio
         public override string ToString()
         {
             return $"{this._codigo}) {this._nombre} [{this._cantidad}]";
+        }
+        public string ToToString()
+        {
+            return $"{ this._nombre} - { this._sabor} $ { this._precio} / $/L { GetPrecioPorLitro()} - [{ this._cantidad}]";
         }
 
         //FALTA OVERRIDE COMPLETAR
