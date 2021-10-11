@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cuatri2021.Presentismo", "Cuatri2021.Presentismo\Cuatri2021.Presentismo.csproj", "{2F1FFDDC-1227-437A-8C75-E2E7BE07771D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cuatri2021.Presentismo.Consola", "Cuatri2021.Presentismo\Cuatri2021.Presentismo.Consola.csproj", "{2F1FFDDC-1227-437A-8C75-E2E7BE07771D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cuatri2021.Presentismo.Biblioteca", "Cuatri2021.Presentismo.Biblioteca\Cuatri2021.Presentismo.Biblioteca.csproj", "{B46E1E6B-0DB9-4014-9A18-4BB7F70C94D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2F1FFDDC-1227-437A-8C75-E2E7BE07771D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F1FFDDC-1227-437A-8C75-E2E7BE07771D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F1FFDDC-1227-437A-8C75-E2E7BE07771D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B46E1E6B-0DB9-4014-9A18-4BB7F70C94D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B46E1E6B-0DB9-4014-9A18-4BB7F70C94D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B46E1E6B-0DB9-4014-9A18-4BB7F70C94D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B46E1E6B-0DB9-4014-9A18-4BB7F70C94D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

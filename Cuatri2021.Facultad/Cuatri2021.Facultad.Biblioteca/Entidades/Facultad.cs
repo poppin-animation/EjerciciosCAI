@@ -97,7 +97,7 @@ namespace Cuatri2021.Facultad.Biblioteca
 
         public void EliminarAlumno(int codigo)
         {
-            Alumno alumno = new Alumno;
+            Alumno alumno = new Alumno();
             foreach (Alumno a in this._alumnos)
             {
                 if (a.Codigo == codigo)

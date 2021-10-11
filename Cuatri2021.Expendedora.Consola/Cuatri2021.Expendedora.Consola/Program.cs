@@ -309,7 +309,7 @@ namespace Cuatri2021.Expendedora.Consola
         private static void AgregarDatos(Eexpendedora expendedora)
         {
             Lata l1 = new Lata("0001", "Coca Cola", "Cola", 5, 340, 10);
-            Lata l2 = new Lata("0002", "Coca Cola", "Cola", 10, 500, 7);
+            Lata l2 = new Lata("0002", "Pepsi Cola", "Cola", 10, 500, 7);
             Lata l3 = new Lata("0003", "Coto Cola", "Cola", 2, 500, 20);
             expendedora.AgregarLata(l1);
             expendedora.AgregarLata(l2);

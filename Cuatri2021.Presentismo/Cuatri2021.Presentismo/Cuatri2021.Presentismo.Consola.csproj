@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cuatri2021.Presentismo.Biblioteca\Cuatri2021.Presentismo.Biblioteca.csproj">
+      <Project>{b46e1e6b-0db9-4014-9a18-4bb7f70c94d9}</Project>
+      <Name>Cuatri2021.Presentismo.Biblioteca</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
