@@ -151,12 +151,7 @@ namespace Cuatri2021.Indumentaria.Consola
                 int codigo = Validador.ValidarInt();
                 Indumentariaa indu = tienda.Seleccionar(codigo);
                 Console.WriteLine("la prenda seleccionada es la siguiente: \n" + indu.GetDetalle());
-                ///        private TipoIndumentaria _tipo;
-                ///        private int _codigo;
-                ///        private int _stock;
-                ///        private string _talle;
-                ///        private double _precio;
-                ///
+
                 do
                 {
                     Console.Clear();
@@ -287,6 +282,15 @@ namespace Cuatri2021.Indumentaria.Consola
                     venta1.Cliente.Apellido = Validador.ValidarString();
                     Console.WriteLine("por favor ingresar el Nombre del Cliente");
                     venta1.Cliente.Nombre = Validador.ValidarString();
+                    ///
+                    ///REVISAR QUE ESTA HACIENDO MAL, SEGURO ES EL DOWHILE... PERO FIJARSE COMO ARREGLARLO PARA PODER AGREGAR MAS DE UN ITEM
+                    ///POR OTRO LADO, QUE NO SE PUEDA AGREGAR MAS DE UN MISMO ITEM... DEBERIA CREAR UNA SUBLISTA NO ?  PARA IR CHEQUEANDO  ?
+                    ///REVISAR TODO. AL MENSO AGREGA LAS LISTAS OK. 
+                    ///TAMBIEN ME FALTA EL METODO DE DEVOLVER. 
+                    ///EL QUE RESTE STOCK DE LO LISTADO 
+                    ///QUE LOS GETDETALLE DE LAS ROPAS ME MUESTRE EL STOCK
+                    ///QUE CAMBIE EL ESTADO DE LAS ORDENES DE VENTA ! ! ! 
+                    
                     do
                     {
                         Console.WriteLine("las prendas disponibles son las siguientes:");

@@ -363,5 +363,21 @@ namespace Cuatri2021.Presentismo.Biblioteca.Utilidades
             return fecha;
         }
 
+
+        public static string BoolSiNo(bool valor)
+        {
+            
+                if (valor == true)
+                {
+                    return "SI";
+                }
+                else
+                {
+                    return "NO";
+                }
+            
+        }
+
+
     }
 }

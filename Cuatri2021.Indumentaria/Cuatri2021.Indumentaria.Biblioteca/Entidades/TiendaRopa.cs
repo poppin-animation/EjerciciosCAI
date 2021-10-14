@@ -95,10 +95,14 @@ namespace Cuatri2021.Indumentaria.Biblioteca.Entidades
                 throw new SinStockException();
 
             }
+            //else if()//////////AGREGAR VALIDACION CON EQUALS 
+            //{
+               
+
+            //}
             else
             {
                 this._inventario.Remove(indu);
-
             }
 
         }
