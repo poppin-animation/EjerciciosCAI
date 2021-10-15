@@ -54,7 +54,7 @@ namespace Cuatri2021.Facultad.Consola
                 // validamos si el input es válido (en este caso podemos tmb dejar que el switch se encargue en el default.
                 // lo dejo igual por las dudas si quieren usar el default del switch para otra cosa.
                
-                String[] opcionesValidas = new String[] { "1", "2", "3", "4", "5", "6", "7", "X" };
+                //String[] opcionesValidas = new String[] { "1", "2", "3", "4", "5", "6", "7", "X" };
 
                 if (opcionSeleccionada.ToUpper() == "X")
                 {

@@ -49,7 +49,7 @@ namespace Cuatri2021.Expendedora.Biblioteca
             this._latas = new List<Lata>();
             this._capacidad = 50; //la decido yo la capacidad???
             this._dinero = 0;
-    }
+        }
 
 
 

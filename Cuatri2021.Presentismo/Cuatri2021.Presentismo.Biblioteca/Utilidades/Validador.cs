@@ -257,6 +257,49 @@ namespace Cuatri2021.Presentismo.Biblioteca.Utilidades
 
 
         }
+        public static DateTime PedirFechaBis()
+        {
+
+            int numero1, numero2, numero3;
+            numero3 = PedirNumero("Ingrese un año", 1, 2021);
+            numero2 = PedirNumero("Ingrese un mes", 1, 12);
+            if (numero3 % 4 == 0 && numero3 % 100 != 0 || numero3 % 400 == 0)
+            {
+                //Console.WriteLine("Es bisiesto {0}\n", numero3);
+                if (numero2 == 2)
+                {
+                    numero1 = PedirNumero("Ingrese un día", 1, 29);
+                }
+                else if (numero2 == 1 || numero2 == 3 || numero2 == 5 || numero2 == 7 || numero2 == 8 || numero2 == 10 || numero2 == 12)
+                {
+
+                    numero1 = PedirNumero("Ingrese un día", 1, 31);
+                }
+                else
+                {
+                    numero1 = PedirNumero("Ingrese un día", 1, 30);
+                }
+            }
+            else
+            {
+                //Console.WriteLine("no es bisiesto {0} \n", numero3);
+                if (numero2 == 2)
+                {
+                    numero1 = PedirNumero("Ingrese un día", 1, 28);
+                }
+                else if (numero2 == 1 || numero2 == 3 || numero2 == 5 || numero2 == 7 || numero2 == 8 || numero2 == 10 || numero2 == 12)
+                {
+
+                    numero1 = PedirNumero("Ingrese un día", 1, 31);
+                }
+                else
+                {
+                    numero1 = PedirNumero("Ingrese un día", 1, 30);
+                }
+            }
+            DateTime fecha = new DateTime(numero3, numero2, numero1);
+            return fecha;
+        }
 
         /// <summary>
         /// Solicita ingreso de S o N para ver si el usuario quiere continuar 

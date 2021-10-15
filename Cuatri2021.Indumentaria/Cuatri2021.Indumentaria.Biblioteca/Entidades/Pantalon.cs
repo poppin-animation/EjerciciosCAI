@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cuatri2021.Presentismo.Biblioteca.Utilidades;
 
 namespace Cuatri2021.Indumentaria.Biblioteca.Entidades
 {
@@ -22,13 +23,16 @@ namespace Cuatri2021.Indumentaria.Biblioteca.Entidades
         }
 
         //constructor
+        public Pantalon(int stock) : base (stock)
+        {
 
+        }
 
 
         //metodos
         public override string GetDetalle()
         {
-            return $"{this.Codigo}) Este es un Pantalon";
+            return $"{this.Codigo}) Camisa - Talle {this.Talle} - Stock {this.Stock} - Material {this.Material} - Bolsillos {Validador.BoolSiNo(this.TieneBolsillos)}";
         }
     }
 }

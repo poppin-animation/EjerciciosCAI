@@ -122,11 +122,19 @@ namespace Cuatri2021.Indumentaria.Consola
                 Console.WriteLine("¿Desea agregar una CAMISA? Si elige NO se ingresará un PANTALON");
                 if (Validador.PedirSN() == true)
                 {
-                    indu1 = new Camisa();
+                    Console.WriteLine("Ingrese la cantidad");
+                    int stock = Validador.ValidarIntPositivo();
+                    Console.WriteLine("Ingrese el talle");
+                    string talle = Validador.ValidarString();
+                    Console.WriteLine("Ingrese la cantidad");
+                    double precio = Validador.ValidarDoublePositivo();
+                    indu1 = new Camisa(stock);
                 }
                 else
                 {
-                    indu1 = new Pantalon();
+                    Console.WriteLine("Ingrese la cantidad");
+                    int stock = Validador.ValidarIntPositivo();
+                    indu1 = new Pantalon(stock);
                 }
 
                 tienda.Agregar(indu1);
@@ -230,6 +238,7 @@ namespace Cuatri2021.Indumentaria.Consola
 
         public static void EliminarIndumentaria(TiendaRopa tienda)
         {
+            Console.WriteLine("La siguiente lista de Indumentarias se encuentra en Sistema: ");
             ListarIndumentaria(tienda);
 
             try

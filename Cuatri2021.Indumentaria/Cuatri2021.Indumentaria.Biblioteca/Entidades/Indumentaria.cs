@@ -45,9 +45,9 @@ namespace Cuatri2021.Indumentaria.Biblioteca.Entidades
         }
 
         //constructor
-        public Indumentariaa()
+        public Indumentariaa(int stock = 3)
         {
-            this._stock = 3;
+            this._stock = stock;
         }
 
 

@@ -247,9 +247,62 @@ namespace Cuatri2021.Presentismo.Biblioteca.Utilidades
         public static DateTime PedirFecha()
         {
             int numero1, numero2, numero3;
-            numero1 = PedirNumero("Ingrese un día", 1, 31);
-            numero2 = PedirNumero("Ingrese un mes", 1, 12);
             numero3 = PedirNumero("Ingrese un año", 1, 2021);
+            numero2 = PedirNumero("Ingrese un mes", 1, 12);
+            if(numero2 == 2)
+            {
+                numero1 = PedirNumero("Ingrese un día", 1, 28);
+            }
+            else
+            {
+
+                numero1 = PedirNumero("Ingrese un día", 1, 31);
+            }
+
+            DateTime fecha = new DateTime(numero3, numero2, numero1);
+            return fecha;
+        }
+
+        public static DateTime PedirFechaBis()
+        {
+           
+                int numero1, numero2, numero3;
+                numero3 = PedirNumero("Ingrese un año", 1, 2021);
+                numero2 = PedirNumero("Ingrese un mes", 1, 12);
+                if (numero3 % 4 == 0 && numero3 % 100 != 0 || numero3 % 400 == 0)
+                {
+                    //Console.WriteLine("Es bisiesto {0}\n", numero3);
+                    if (numero2 == 2)
+                    {
+                        numero1 = PedirNumero("Ingrese un día", 1, 29);
+                    }
+                    else if (numero2 == 1 || numero2 == 3 || numero2 == 5 || numero2 == 7 || numero2 == 8 || numero2 == 10 || numero2 == 12)
+                    {
+
+                        numero1 = PedirNumero("Ingrese un día", 1, 31);
+                    }
+                    else
+                    {
+                        numero1 = PedirNumero("Ingrese un día", 1, 30);
+                    }
+                }
+                else
+                {
+                    //Console.WriteLine("no es bisiesto {0} \n", numero3);
+                    if (numero2 == 2)
+                    {
+                        numero1 = PedirNumero("Ingrese un día", 1, 28);
+                    }
+                    else if (numero2 == 1 || numero2 == 3 || numero2 == 5 || numero2 == 7 || numero2 == 8 || numero2 == 10 || numero2 == 12)
+                    {
+
+                        numero1 = PedirNumero("Ingrese un día", 1, 31);
+                    }
+                    else
+                    {
+                        numero1 = PedirNumero("Ingrese un día", 1, 30);
+                    }
+                }
             DateTime fecha = new DateTime(numero3, numero2, numero1);
             return fecha;
         }
@@ -265,22 +318,7 @@ namespace Cuatri2021.Presentismo.Biblioteca.Utilidades
             return fecha;
         }
 
-        public static bool PedirPresente()
-        {
-
-            string salida;
-            do
-            {
-                Console.Write("El Alumno esta presente? Ingrese 'S' por SI o 'N' por NO: ");
-                salida = ValidarString();
-
-            } while (salida.ToUpper() != "S" && salida.ToUpper() != "N");
-
-            return salida.ToUpper() == "S";
-
-
-
-        }
+        
         public static bool PedirSN()
         {
 
@@ -377,6 +415,61 @@ namespace Cuatri2021.Presentismo.Biblioteca.Utilidades
                 }
             
         }
+
+
+
+
+        /// <summary>
+        ///CALCULAR DIFERENCIA DE FECHAS EN AÑOS.  POR EDAD. si cumplio o no los años ya 
+        ///        ///
+        /// </summary>
+        /// <param name="fecha1"> es la fecha mas grande, la actual, el dia de hoy. o la fecha de despido par ala antiguedad</param>
+        /// <param name="fecha2"> es la fehca inicial, de nacimiento, la mas antigua</param>
+        /// <returns></returns>
+        public static int Edad(DateTime fechaInicial, DateTime fechaFinal)
+        {
+
+            if ((fechaFinal.Month >= fechaInicial.Month) && (fechaFinal.Day >= fechaInicial.Day))
+            {
+                return (fechaFinal.Year - fechaInicial.Year);
+
+            }
+            else
+            {
+                return (fechaFinal.Year - fechaInicial.Year - 1);
+            }
+
+        }
+
+
+        /// <summary>
+        /// calculo de diferencia de fechas. al numero devuelto, se le calcula 
+        /// Double segundos = dateDiff.TotalSeconds;
+        ///Double minutos = dateDiff.TotalMinutes;
+        ///Double horas = dateDiff.TotalHours;
+        ///int dias = dateDiff.Days;
+        ///int años = dateDiff.Year;
+        /// </summary>
+        /// <param name="fechaInicial"></param>
+        /// <param name="fechaFinal"></param>
+        /// <returns></returns>
+        public static TimeSpan DateDiff(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            TimeSpan datediff = fechaFinal - fechaInicial;
+            return datediff;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

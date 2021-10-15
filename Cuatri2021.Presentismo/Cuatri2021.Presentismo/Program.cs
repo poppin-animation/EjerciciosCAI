@@ -81,7 +81,9 @@ namespace Cuatri2021.Presentismo
             try
             {
                 // Ingreso fecha
-                string fechaS = Validador.PedirFechaString("A continuación se le solicitará ingresar una fecha");
+                //string fechaS = Validador.PedirFechaString("A continuación se le solicitará ingresar una fecha");
+                DateTime fecha = Validador.PedirFechaBis();
+                string fechaS = Validador.ConvertirFecha(fecha);
                 Console.WriteLine(fechaS);
                 Console.ReadKey();
                 //PRUEBA DE FECHA INGRESADA

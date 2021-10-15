@@ -39,14 +39,23 @@ namespace Cuatri2021.Indumentaria.Biblioteca.Entidades
             {
                 throw new Exception("No se ha podido agregar la prenda");
             }
-            else if (Equals(_inventario.Find(x => x.Codigo == indu.Codigo)))
+            else if (this.Equals(_inventario.Find(x => x.Codigo == indu.Codigo)))
             {
                 throw new Exception("Ya se encuentra listada la prenda solicitada. Si necesita realizar actualizaciones sobre ella, elija la opcion de Modificar");
             }
             else
             {
-                indu.Codigo = GetProximoCodigo();
-                _inventario.Add(indu);
+                if(indu.Stock <3)
+                {
+                    throw new Exception("El stock mínimo para ingresar una prenda es de 3 unidades. Reintente. ");
+
+                }
+                else
+                {
+                    indu.Codigo = GetProximoCodigo();
+                    _inventario.Add(indu);
+                }
+
             }
             
         }
