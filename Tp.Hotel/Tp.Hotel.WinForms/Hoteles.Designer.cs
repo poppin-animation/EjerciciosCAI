@@ -39,22 +39,22 @@ namespace Tp.Hotel.WinForms
             this._txtNombre = new System.Windows.Forms.TextBox();
             this._txtDireccion = new System.Windows.Forms.TextBox();
             this._cmbEstrellas = new System.Windows.Forms.ComboBox();
-            this._grpBxAmenities = new System.Windows.Forms.GroupBox();
             this._btnVolver = new System.Windows.Forms.Button();
             this._btnLimpiar = new System.Windows.Forms.Button();
             this._btnAgregar = new System.Windows.Forms.Button();
             this._btnMostrar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this._btnMostrar);
             this.panel1.Controls.Add(this._btnAgregar);
             this.panel1.Controls.Add(this._btnLimpiar);
             this.panel1.Controls.Add(this._btnVolver);
-            this.panel1.Controls.Add(this._grpBxAmenities);
             this.panel1.Controls.Add(this._cmbEstrellas);
             this.panel1.Controls.Add(this._txtDireccion);
             this.panel1.Controls.Add(this._txtNombre);
@@ -66,7 +66,7 @@ namespace Tp.Hotel.WinForms
             this.panel1.Controls.Add(this._lblIdHotel);
             this.panel1.Location = new System.Drawing.Point(-4, -19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(817, 482);
+            this.panel1.Size = new System.Drawing.Size(505, 482);
             this.panel1.TabIndex = 0;
             // 
             // _lblIdHotel
@@ -108,7 +108,7 @@ namespace Tp.Hotel.WinForms
             // _lblAmenities
             // 
             this._lblAmenities.AutoSize = true;
-            this._lblAmenities.Location = new System.Drawing.Point(476, 71);
+            this._lblAmenities.Location = new System.Drawing.Point(67, 284);
             this._lblAmenities.Name = "_lblAmenities";
             this._lblAmenities.Size = new System.Drawing.Size(79, 20);
             this._lblAmenities.TabIndex = 4;
@@ -143,16 +143,6 @@ namespace Tp.Hotel.WinForms
             this._cmbEstrellas.Size = new System.Drawing.Size(108, 28);
             this._cmbEstrellas.TabIndex = 8;
             // 
-            // _grpBxAmenities
-            // 
-            this._grpBxAmenities.BackColor = System.Drawing.Color.MintCream;
-            this._grpBxAmenities.Location = new System.Drawing.Point(471, 94);
-            this._grpBxAmenities.Name = "_grpBxAmenities";
-            this._grpBxAmenities.Size = new System.Drawing.Size(295, 254);
-            this._grpBxAmenities.TabIndex = 9;
-            this._grpBxAmenities.TabStop = false;
-            this._grpBxAmenities.Text = "_lstAmenities";
-            // 
             // _btnVolver
             // 
             this._btnVolver.Location = new System.Drawing.Point(16, 411);
@@ -164,7 +154,7 @@ namespace Tp.Hotel.WinForms
             // 
             // _btnLimpiar
             // 
-            this._btnLimpiar.Location = new System.Drawing.Point(209, 291);
+            this._btnLimpiar.Location = new System.Drawing.Point(265, 411);
             this._btnLimpiar.Name = "_btnLimpiar";
             this._btnLimpiar.Size = new System.Drawing.Size(114, 36);
             this._btnLimpiar.TabIndex = 11;
@@ -173,7 +163,7 @@ namespace Tp.Hotel.WinForms
             // 
             // _btnAgregar
             // 
-            this._btnAgregar.Location = new System.Drawing.Point(75, 291);
+            this._btnAgregar.Location = new System.Drawing.Point(71, 338);
             this._btnAgregar.Name = "_btnAgregar";
             this._btnAgregar.Size = new System.Drawing.Size(114, 36);
             this._btnAgregar.TabIndex = 12;
@@ -182,18 +172,26 @@ namespace Tp.Hotel.WinForms
             // 
             // _btnMostrar
             // 
-            this._btnMostrar.Location = new System.Drawing.Point(652, 370);
+            this._btnMostrar.Location = new System.Drawing.Point(213, 338);
             this._btnMostrar.Name = "_btnMostrar";
             this._btnMostrar.Size = new System.Drawing.Size(114, 36);
             this._btnMostrar.TabIndex = 13;
             this._btnMostrar.Text = "Mostrar";
             this._btnMostrar.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(149, 276);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(108, 28);
+            this.comboBox1.TabIndex = 14;
+            // 
             // Hoteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(400, 450);
             this.Controls.Add(this.panel1);
             this.Name = "Hoteles";
             this.Text = "Hoteles";
@@ -210,7 +208,6 @@ namespace Tp.Hotel.WinForms
         private System.Windows.Forms.Button _btnAgregar;
         private System.Windows.Forms.Button _btnLimpiar;
         private System.Windows.Forms.Button _btnVolver;
-        private System.Windows.Forms.GroupBox _grpBxAmenities;
         private System.Windows.Forms.ComboBox _cmbEstrellas;
         private System.Windows.Forms.TextBox _txtDireccion;
         private System.Windows.Forms.TextBox _txtNombre;
@@ -220,5 +217,6 @@ namespace Tp.Hotel.WinForms
         private System.Windows.Forms.Label _lblDireccion;
         private System.Windows.Forms.Label _lblNombre;
         private System.Windows.Forms.Label _lblIdHotel;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
