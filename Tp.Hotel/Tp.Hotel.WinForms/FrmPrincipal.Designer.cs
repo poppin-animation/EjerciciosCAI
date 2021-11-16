@@ -30,26 +30,20 @@ namespace Tp.Hotel.WinForms
         /// </summary>
         private void InitializeComponent()
         {
-            this._btnConsultarHotel = new System.Windows.Forms.Button();
-            this._btnConsultarHabitacion = new System.Windows.Forms.Button();
             this._lblUsuario = new System.Windows.Forms.Label();
-            this._lblReservas = new System.Windows.Forms.Label();
-            this._lblHoteles = new System.Windows.Forms.Label();
-            this._lblHabitaciones = new System.Windows.Forms.Label();
             this._lblReportes = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this._btnIngresarHabitacion = new System.Windows.Forms.Button();
-            this._btnIngresarHotel = new System.Windows.Forms.Button();
-            this._btnConsultarReservas = new System.Windows.Forms.Button();
-            this._btnIngresarReserva = new System.Windows.Forms.Button();
             this._btnReporteHabitaciones = new System.Windows.Forms.Button();
             this._btnReporteReservas = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this._btnCliente = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this._btnReserva = new System.Windows.Forms.Button();
+            this._btnHoteles = new System.Windows.Forms.Button();
+            this._btnHabitaciones = new System.Windows.Forms.Button();
+            this._txtUsuario = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -57,68 +51,15 @@ namespace Tp.Hotel.WinForms
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // _btnConsultarHotel
-            // 
-            this._btnConsultarHotel.Location = new System.Drawing.Point(186, 33);
-            this._btnConsultarHotel.Name = "_btnConsultarHotel";
-            this._btnConsultarHotel.Size = new System.Drawing.Size(110, 25);
-            this._btnConsultarHotel.TabIndex = 5;
-            this._btnConsultarHotel.Text = "Consultar";
-            this._btnConsultarHotel.UseVisualStyleBackColor = true;
-            // 
-            // _btnConsultarHabitacion
-            // 
-            this._btnConsultarHabitacion.Location = new System.Drawing.Point(186, 35);
-            this._btnConsultarHabitacion.Name = "_btnConsultarHabitacion";
-            this._btnConsultarHabitacion.Size = new System.Drawing.Size(110, 25);
-            this._btnConsultarHabitacion.TabIndex = 7;
-            this._btnConsultarHabitacion.Text = "Consultar";
-            this._btnConsultarHabitacion.UseVisualStyleBackColor = true;
-            this._btnConsultarHabitacion.Click += new System.EventHandler(this._btnConsultarHabitacion_Click);
-            // 
             // _lblUsuario
             // 
             this._lblUsuario.AutoSize = true;
-            this._lblUsuario.Location = new System.Drawing.Point(638, 13);
+            this._lblUsuario.Location = new System.Drawing.Point(594, 11);
             this._lblUsuario.Name = "_lblUsuario";
             this._lblUsuario.Size = new System.Drawing.Size(54, 16);
             this._lblUsuario.TabIndex = 8;
             this._lblUsuario.Text = "Usuario";
             this._lblUsuario.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // _lblReservas
-            // 
-            this._lblReservas.AutoSize = true;
-            this._lblReservas.BackColor = System.Drawing.Color.MediumPurple;
-            this._lblReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lblReservas.Location = new System.Drawing.Point(33, 165);
-            this._lblReservas.Name = "_lblReservas";
-            this._lblReservas.Size = new System.Drawing.Size(74, 16);
-            this._lblReservas.TabIndex = 10;
-            this._lblReservas.Text = "Reservas";
-            this._lblReservas.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // _lblHoteles
-            // 
-            this._lblHoteles.AutoSize = true;
-            this._lblHoteles.BackColor = System.Drawing.Color.PowderBlue;
-            this._lblHoteles.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lblHoteles.Location = new System.Drawing.Point(33, 250);
-            this._lblHoteles.Name = "_lblHoteles";
-            this._lblHoteles.Size = new System.Drawing.Size(61, 16);
-            this._lblHoteles.TabIndex = 11;
-            this._lblHoteles.Text = "Hoteles";
-            // 
-            // _lblHabitaciones
-            // 
-            this._lblHabitaciones.AutoSize = true;
-            this._lblHabitaciones.BackColor = System.Drawing.Color.LightCoral;
-            this._lblHabitaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lblHabitaciones.Location = new System.Drawing.Point(33, 340);
-            this._lblHabitaciones.Name = "_lblHabitaciones";
-            this._lblHabitaciones.Size = new System.Drawing.Size(99, 16);
-            this._lblHabitaciones.TabIndex = 12;
-            this._lblHabitaciones.Text = "Habitaciones";
             // 
             // _lblReportes
             // 
@@ -144,9 +85,7 @@ namespace Tp.Hotel.WinForms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.MediumPurple;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this._btnIngresarReserva);
-            this.panel2.Controls.Add(this._btnConsultarReservas);
+            this.panel2.Controls.Add(this._btnReserva);
             this.panel2.Location = new System.Drawing.Point(24, 154);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(324, 68);
@@ -155,8 +94,7 @@ namespace Tp.Hotel.WinForms
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.PowderBlue;
-            this.panel3.Controls.Add(this._btnIngresarHotel);
-            this.panel3.Controls.Add(this._btnConsultarHotel);
+            this.panel3.Controls.Add(this._btnHoteles);
             this.panel3.Location = new System.Drawing.Point(24, 243);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(324, 68);
@@ -165,49 +103,11 @@ namespace Tp.Hotel.WinForms
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.LightCoral;
-            this.panel4.Controls.Add(this._btnIngresarHabitacion);
-            this.panel4.Controls.Add(this._btnConsultarHabitacion);
+            this.panel4.Controls.Add(this._btnHabitaciones);
             this.panel4.Location = new System.Drawing.Point(24, 331);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(324, 68);
             this.panel4.TabIndex = 21;
-            // 
-            // _btnIngresarHabitacion
-            // 
-            this._btnIngresarHabitacion.Location = new System.Drawing.Point(38, 35);
-            this._btnIngresarHabitacion.Name = "_btnIngresarHabitacion";
-            this._btnIngresarHabitacion.Size = new System.Drawing.Size(110, 25);
-            this._btnIngresarHabitacion.TabIndex = 8;
-            this._btnIngresarHabitacion.Text = "Ingresar";
-            this._btnIngresarHabitacion.UseVisualStyleBackColor = true;
-            this._btnIngresarHabitacion.Click += new System.EventHandler(this._btnIngresarHabitacion_Click);
-            // 
-            // _btnIngresarHotel
-            // 
-            this._btnIngresarHotel.Location = new System.Drawing.Point(38, 33);
-            this._btnIngresarHotel.Name = "_btnIngresarHotel";
-            this._btnIngresarHotel.Size = new System.Drawing.Size(110, 25);
-            this._btnIngresarHotel.TabIndex = 6;
-            this._btnIngresarHotel.Text = "Ingresar";
-            this._btnIngresarHotel.UseVisualStyleBackColor = true;
-            // 
-            // _btnConsultarReservas
-            // 
-            this._btnConsultarReservas.Location = new System.Drawing.Point(186, 32);
-            this._btnConsultarReservas.Name = "_btnConsultarReservas";
-            this._btnConsultarReservas.Size = new System.Drawing.Size(110, 25);
-            this._btnConsultarReservas.TabIndex = 7;
-            this._btnConsultarReservas.Text = "Consultar";
-            this._btnConsultarReservas.UseVisualStyleBackColor = true;
-            // 
-            // _btnIngresarReserva
-            // 
-            this._btnIngresarReserva.Location = new System.Drawing.Point(38, 32);
-            this._btnIngresarReserva.Name = "_btnIngresarReserva";
-            this._btnIngresarReserva.Size = new System.Drawing.Size(110, 25);
-            this._btnIngresarReserva.TabIndex = 8;
-            this._btnIngresarReserva.Text = "Ingresar";
-            this._btnIngresarReserva.UseVisualStyleBackColor = true;
             // 
             // _btnReporteHabitaciones
             // 
@@ -251,25 +151,51 @@ namespace Tp.Hotel.WinForms
             this._btnCliente.Text = "Cliente";
             this._btnCliente.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // _btnReserva
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(107, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 25);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Consultar";
-            this.button1.UseVisualStyleBackColor = true;
+            this._btnReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._btnReserva.Location = new System.Drawing.Point(55, 19);
+            this._btnReserva.Name = "_btnReserva";
+            this._btnReserva.Size = new System.Drawing.Size(210, 35);
+            this._btnReserva.TabIndex = 9;
+            this._btnReserva.Text = "Reserva";
+            this._btnReserva.UseVisualStyleBackColor = true;
+            // 
+            // _btnHoteles
+            // 
+            this._btnHoteles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._btnHoteles.Location = new System.Drawing.Point(55, 18);
+            this._btnHoteles.Name = "_btnHoteles";
+            this._btnHoteles.Size = new System.Drawing.Size(210, 35);
+            this._btnHoteles.TabIndex = 10;
+            this._btnHoteles.Text = "Hoteles";
+            this._btnHoteles.UseVisualStyleBackColor = true;
+            // 
+            // _btnHabitaciones
+            // 
+            this._btnHabitaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._btnHabitaciones.Location = new System.Drawing.Point(57, 17);
+            this._btnHabitaciones.Name = "_btnHabitaciones";
+            this._btnHabitaciones.Size = new System.Drawing.Size(210, 35);
+            this._btnHabitaciones.TabIndex = 11;
+            this._btnHabitaciones.Text = "Habitaciones";
+            this._btnHabitaciones.UseVisualStyleBackColor = true;
+            // 
+            // _txtUsuario
+            // 
+            this._txtUsuario.Enabled = false;
+            this._txtUsuario.Location = new System.Drawing.Point(657, 8);
+            this._txtUsuario.Name = "_txtUsuario";
+            this._txtUsuario.Size = new System.Drawing.Size(108, 22);
+            this._txtUsuario.TabIndex = 24;
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this._txtUsuario);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this._lblHabitaciones);
-            this.Controls.Add(this._lblHoteles);
-            this.Controls.Add(this._lblReservas);
             this.Controls.Add(this._lblUsuario);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -304,26 +230,20 @@ namespace Tp.Hotel.WinForms
         }
 
         #endregion
-        private System.Windows.Forms.Button _btnConsultarHotel;
-        private System.Windows.Forms.Button _btnConsultarHabitacion;
         private System.Windows.Forms.Label _lblUsuario;
-        private System.Windows.Forms.Label _lblReservas;
-        private System.Windows.Forms.Label _lblHoteles;
-        private System.Windows.Forms.Label _lblHabitaciones;
         private System.Windows.Forms.Label _lblReportes;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button _btnIngresarHabitacion;
-        private System.Windows.Forms.Button _btnIngresarReserva;
-        private System.Windows.Forms.Button _btnConsultarReservas;
-        private System.Windows.Forms.Button _btnIngresarHotel;
         private System.Windows.Forms.Button _btnReporteHabitaciones;
         private System.Windows.Forms.Button _btnReporteReservas;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button _btnCliente;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button _btnReserva;
+        private System.Windows.Forms.Button _btnHoteles;
+        private System.Windows.Forms.Button _btnHabitaciones;
+        private System.Windows.Forms.TextBox _txtUsuario;
     }
 }
 
