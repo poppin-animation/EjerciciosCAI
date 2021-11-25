@@ -50,6 +50,7 @@
             this._btnFrmCuentas.TabIndex = 1;
             this._btnFrmCuentas.Text = "Cuentas";
             this._btnFrmCuentas.UseVisualStyleBackColor = true;
+            this._btnFrmCuentas.Click += new System.EventHandler(this._btnFrmCuentas_Click);
             // 
             // FrmPrincipal
             // 

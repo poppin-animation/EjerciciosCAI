@@ -13,7 +13,12 @@ namespace Cuatri2021.Practica.Winforms
     public partial class FrmPrincipal : Form
     {
         private FrmCliente _formularioClientes;
+        private FrmCuentas _formularioCuentas;
         //Agrego el formulario a modo de PROPIEDAD para que siempre lo podamos llamar 
+
+
+
+
         public FrmPrincipal()
         {
             CompletarControles();
@@ -25,6 +30,7 @@ namespace Cuatri2021.Practica.Winforms
             try
             {
                 _formularioClientes.Show();
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -45,8 +51,26 @@ namespace Cuatri2021.Practica.Winforms
         /// </summary>
         private void CompletarControles()
         {
-            _formularioClientes = new FrmCliente();
+            _formularioClientes = new FrmCliente(this);
 
+            //agrego al frmprincipal como OWNER Del frmClientes.
+            _formularioCuentas = new FrmCuentas(this);
+
+
+        }
+
+        private void _btnFrmCuentas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _formularioCuentas.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

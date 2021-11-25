@@ -42,7 +42,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteServicio.cs" />
+    <Compile Include="CuentaServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cuatri2021.Practica.AccesoDatos\Cuatri2021.Practica.AccesoDatos.csproj">
+      <Project>{56e9bd88-35ff-492b-b835-faa06db4aca7}</Project>
+      <Name>Cuatri2021.Practica.AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cuatri2021.Practica.Entidades\Cuatri2021.Practica.Entidades.csproj">
+      <Project>{2d6b47bb-7279-4160-8704-65a47044530f}</Project>
+      <Name>Cuatri2021.Practica.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -30,9 +30,28 @@ namespace Cuatri2021.Practica.Entidades
             _direccion = direccion;
             _telefono = telefono;
         }
+        public Cliente(int id, string nombre, string apellido)
+        {
+            _id = id;
+            _nombre = nombre;
+            _apellido = apellido;
+
+        }
 
         public int Id { get => _id; set => _id = value; }
-        public long Cuit { get => _cuit; set => _cuit = value; }
+        public long Cuit { get => _cuit;
+            set
+            {
+                if (value.ToString().Length != 11)
+                {
+                    throw new Exception("El CUIT tiene que ser de 11 dígitos");
+                }
+                else
+                {
+                    _cuit = value;
+                }
+            }
+        }
         public bool Activo { get => _activo; set => _activo = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }

@@ -47,9 +47,10 @@
             this._btnGuardar = new System.Windows.Forms.Button();
             this._btnLimpiarCliente = new System.Windows.Forms.Button();
             this._btnVolverCliente = new System.Windows.Forms.Button();
-            this._btnBuscarCliente = new System.Windows.Forms.Button();
+            this._btnEditarCliente = new System.Windows.Forms.Button();
             this._dtPickerFechaNacCliente = new System.Windows.Forms.DateTimePicker();
             this._chkBoxActivoCliente = new System.Windows.Forms.CheckBox();
+            this._cBoxTipoDocumentoCliente = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // _lBoxClientes
@@ -60,6 +61,7 @@
             this._lBoxClientes.Name = "_lBoxClientes";
             this._lBoxClientes.Size = new System.Drawing.Size(297, 276);
             this._lBoxClientes.TabIndex = 0;
+            this._lBoxClientes.SelectedIndexChanged += new System.EventHandler(this._lBoxClientes_SelectedIndexChanged);
             // 
             // _txtBoxNombreCliente
             // 
@@ -213,14 +215,15 @@
             this._btnVolverCliente.UseVisualStyleBackColor = true;
             this._btnVolverCliente.Click += new System.EventHandler(this._btnVolverCliente_Click);
             // 
-            // _btnBuscarCliente
+            // _btnEditarCliente
             // 
-            this._btnBuscarCliente.Location = new System.Drawing.Point(253, 33);
-            this._btnBuscarCliente.Name = "_btnBuscarCliente";
-            this._btnBuscarCliente.Size = new System.Drawing.Size(75, 23);
-            this._btnBuscarCliente.TabIndex = 11;
-            this._btnBuscarCliente.Text = "Buscar";
-            this._btnBuscarCliente.UseVisualStyleBackColor = true;
+            this._btnEditarCliente.Location = new System.Drawing.Point(253, 33);
+            this._btnEditarCliente.Name = "_btnEditarCliente";
+            this._btnEditarCliente.Size = new System.Drawing.Size(75, 23);
+            this._btnEditarCliente.TabIndex = 11;
+            this._btnEditarCliente.Text = "Editar";
+            this._btnEditarCliente.UseVisualStyleBackColor = true;
+            this._btnEditarCliente.Click += new System.EventHandler(this._btnEditarCliente_Click);
             // 
             // _dtPickerFechaNacCliente
             // 
@@ -239,14 +242,23 @@
             this._chkBoxActivoCliente.Text = "Activo";
             this._chkBoxActivoCliente.UseVisualStyleBackColor = true;
             // 
+            // _cBoxTipoDocumentoCliente
+            // 
+            this._cBoxTipoDocumentoCliente.FormattingEnabled = true;
+            this._cBoxTipoDocumentoCliente.Location = new System.Drawing.Point(249, 380);
+            this._cBoxTipoDocumentoCliente.Name = "_cBoxTipoDocumentoCliente";
+            this._cBoxTipoDocumentoCliente.Size = new System.Drawing.Size(129, 24);
+            this._cBoxTipoDocumentoCliente.TabIndex = 19;
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this._cBoxTipoDocumentoCliente);
             this.Controls.Add(this._chkBoxActivoCliente);
             this.Controls.Add(this._dtPickerFechaNacCliente);
-            this.Controls.Add(this._btnBuscarCliente);
+            this.Controls.Add(this._btnEditarCliente);
             this.Controls.Add(this._btnVolverCliente);
             this.Controls.Add(this._btnLimpiarCliente);
             this.Controls.Add(this._btnGuardar);
@@ -295,9 +307,10 @@
         private System.Windows.Forms.Button _btnGuardar;
         private System.Windows.Forms.Button _btnLimpiarCliente;
         private System.Windows.Forms.Button _btnVolverCliente;
-        private System.Windows.Forms.Button _btnBuscarCliente;
+        private System.Windows.Forms.Button _btnEditarCliente;
         private System.Windows.Forms.DateTimePicker _dtPickerFechaNacCliente;
         private System.Windows.Forms.CheckBox _chkBoxActivoCliente;
+        private System.Windows.Forms.ComboBox _cBoxTipoDocumentoCliente;
     }
 }
 
