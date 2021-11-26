@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,12 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Cuenta.cs" />
+    <Compile Include="Excepcion\CuentaNoExisteException.cs" />
+    <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Cuenta.cs" />
+    <Compile Include="Modelos\TransactionResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoCuenta.cs" />
-    <Compile Include="TipoDocumento.cs" />
-    <Compile Include="Validar.cs" />
+    <Compile Include="Entidades\TipoCuenta.cs" />
+    <Compile Include="Entidades\TipoDocumento.cs" />
+    <Compile Include="Helpers\Validar.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,7 +8,7 @@ namespace Cuatri2021.Practica.Entidades
 {
     public class Cuenta
     {
-        private static int _idCuenta = 0;
+        private static int _id;
         private int _nroCuenta;
         private string _descripcion;
         private double _saldo;
@@ -20,7 +20,7 @@ namespace Cuatri2021.Practica.Entidades
 
 
 
-        public int IdCuenta { get => _idCuenta; private set => _idCuenta = value; }
+        public int id { get => _id; private set => _id = value; }
 
         public int NroCuenta { get => _nroCuenta; set => _nroCuenta = value; }
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
@@ -33,8 +33,8 @@ namespace Cuatri2021.Practica.Entidades
 
         public Cuenta( int nroCuenta, TipoCuenta tipocuenta, string descripcion, double saldo, DateTime fechaApertura, DateTime fechaModificacion, bool activo /*, int idCliente*/)
         {
-            IdCuenta++;
-            _idCuenta = IdCuenta;
+            
+            
             _nroCuenta = nroCuenta;
             _descripcion = descripcion;
             _saldo = saldo;
@@ -48,8 +48,14 @@ namespace Cuatri2021.Practica.Entidades
 
         public override string ToString()
         {
-            return $"{NroCuenta}) {Descripcion} - {Saldo} - {TipoCuenta.Tipo} - {(Validar.BoolSiNo(Activo))}";
+           // return string.Format("{3}) Cuenta nro {0} / {1} Saldo $ {2}", this.NroCuenta, this.Descripcion, this.Saldo.ToString("0.00"), this.id);
+            return $"{this.id}) Cuenta nro {this.NroCuenta} / {this.Descripcion} - Saldo $ {this.Saldo.ToString("0.00")}";
         }
+
+
+
+
+
 
     }
 

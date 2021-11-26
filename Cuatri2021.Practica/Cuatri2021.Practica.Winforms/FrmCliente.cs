@@ -18,7 +18,7 @@ namespace Cuatri2021.Practica.Winforms
 
         public List<TipoDocumento> _listaDocumentos;
         private List<Cliente> _listaClientes;
-
+        private ClienteServicio _clienteServicio;
 
         public FrmCliente(Form owner)
         {
@@ -32,7 +32,7 @@ namespace Cuatri2021.Practica.Winforms
             _listaDocumentos.Add(new TipoDocumento(2, "CUIT"));
 
 
-
+            _clienteServicio = new ClienteServicio();   
             this.Owner = owner;
             InitializeComponent();
         }
@@ -56,10 +56,10 @@ namespace Cuatri2021.Practica.Winforms
 
         private void CargarListaClientes()
         {
-            //throw new NotImplementedException();
-            //BINFING. llamar al objeto. y usar metodo... PRIMERO EN NULL SIEMPRE
+            
+            //BINDING. llamar al objeto. y usar metodo... PRIMERO EN NULL SIEMPRE
             _lBoxClientes.DataSource = null;
-            _lBoxClientes.DataSource = this._listaClientes;
+            _lBoxClientes.DataSource = this._clienteServicio.GetListaClientes();
             _lBoxClientes.DisplayMember = ""; // POR DEFECTO VA AL TOSTRING()
                                               //SI tengo otra propiedad lo llamo con los "" y el nombre, por ejemplo = "Mostrar"
             _lBoxClientes.ValueMember = "";

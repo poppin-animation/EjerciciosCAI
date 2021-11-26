@@ -18,6 +18,10 @@ namespace Cuatri2021.Practica.Entidades
         private string _direccion;
         private string _telefono;
 
+        public Cliente()
+        {
+
+        }
         public Cliente(int id, long cuit, string email, DateTime fechaNacimiento, bool activo, string nombre, string apellido, string direccion, string telefono)
         {
             _id = id;

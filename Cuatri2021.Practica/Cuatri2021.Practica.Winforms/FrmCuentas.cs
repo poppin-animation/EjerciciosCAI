@@ -14,16 +14,15 @@ namespace Cuatri2021.Practica.Winforms
 {
     public partial class FrmCuentas : Form
     {
-        public List<Cuenta> _listaCuentas;
+        //public List<Cuenta> _listaCuentas;
         public List<Cliente> _listaCliente;
         public List<TipoCuenta> _listaTipoCuentas;
+        private CuentaServicio _cuentaServicio; // AGREGO COMO ATRIBUTO LA CLASE SERVICIO
+
+
 
         public FrmCuentas(Form owner)
         {
-            _listaCuentas = new List<Cuenta>();
-            _listaCuentas.Add(new Cuenta(0001,new TipoCuenta(1,"CA"), "Caja de Ahorro", 9.08, new DateTime(2009, 09, 20), new DateTime(2021, 08, 21), true));
-            _listaCuentas.Add(new Cuenta(0002,new TipoCuenta(2,"CC"), "Cuenta Corriente", 40.05, new DateTime(2020, 05, 06), new DateTime(2005, 04, 12), false ));
-
             _listaTipoCuentas = new List<TipoCuenta>();
             _listaTipoCuentas.Add(new TipoCuenta(0, "--Selecionar--"));
             _listaTipoCuentas.Add(new TipoCuenta(1, "CAJA DE AHORRO"));
@@ -31,8 +30,64 @@ namespace Cuatri2021.Practica.Winforms
 
             _listaCliente = new List<Cliente>();
 
+            _cuentaServicio = new CuentaServicio(); // LO INICIALIZO EN EL CONSTRUCTOR 
+
             this.Owner = owner;
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// -----------------------LOAD DEL FORMULARIO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmCuentas_Load(object sender, EventArgs e)
+        {
+            InicializarControles();
+        }
+
+
+        private void InicializarControles()
+        {
+            try
+            {
+                CargarListaClientes();
+                CargarListaTipoDocumentos();
+                CargarListaCuentas();
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error");
+
+            }
+
+        }
+
+        private void CargarListaClientes()
+        {
+            _CBoxIdCliente.DataSource = null;
+            //_CBoxIdCliente.DataSource = _listaCliente;
+            _CBoxIdCliente.DisplayMember = "Descripcion";
+            _CBoxIdCliente.ValueMember = "IdCliente";
+
+        }
+        private void CargarListaTipoDocumentos()
+        {
+            _CBoxTipoCuenta.DataSource = null;
+            _CBoxTipoCuenta.DataSource = _listaTipoCuentas; // Y LO AGREGO AQUI, YA QUE ES EL RESPONSABLE DE TRAERME LA LISTA DE LOS DATOS
+            _CBoxTipoCuenta.DisplayMember = "Tipo";
+            _CBoxTipoCuenta.ValueMember = "Id";
+
+        }
+        private void CargarListaCuentas()
+        {
+            _lBoxCuentas.DataSource = null;
+            _lBoxCuentas.DataSource = _cuentaServicio.GetListaCuentas();
+            _lBoxCuentas.DisplayMember = ""; // POR DEFECTO VA AL TOSTRING()
+                                             //SI tengo otra propiedad lo llamo con los "" y el nombre, por ejemplo = "Mostrar"
+            _lBoxCuentas.ValueMember = "";
         }
 
         private void _btnVolverCuentas_Click(object sender, EventArgs e)
@@ -44,7 +99,6 @@ namespace Cuatri2021.Practica.Winforms
         private void _btnLimpiarCuentas_Click(object sender, EventArgs e)
         {
             Limpiar();
-           
         }
         private void Limpiar()
         {
@@ -87,63 +141,24 @@ namespace Cuatri2021.Practica.Winforms
         {
             try
             {
-                this._listaCuentas.Add(cuenta);
+                this._cuentaServicio.AddCuenta(cuenta);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 MessageBox.Show("La Cuenta no pudo ser agregada");
             }
         }
 
-        private void FrmCuentas_Load(object sender, EventArgs e)
-        {
-            InicializarControles();
-        }
-
-        private void InicializarControles()
-        {
-            try
-            {
-
-                _CBoxIdCliente.DataSource = null;
-                //_CBoxIdCliente.DataSource = _listaCliente;
-                _CBoxIdCliente.DisplayMember = "Descripcion";
-                _CBoxIdCliente.ValueMember = "IdCliente";
-
-                _CBoxTipoCuenta.DataSource = null;
-                _CBoxTipoCuenta.DataSource = _listaTipoCuentas;
-                _CBoxTipoCuenta.DisplayMember = "Tipo";
-                _CBoxTipoCuenta.ValueMember = "Id";
-
-                CargarListaCuentas();
 
 
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error");
-             
-            }
-
-       
-
-
-        }
 
         private void _lBoxCuentas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void CargarListaCuentas()
-        {
-            _lBoxCuentas.DataSource = null;
-            _lBoxCuentas.DataSource = this._listaCuentas;
-            _lBoxCuentas.DisplayMember = ""; // POR DEFECTO VA AL TOSTRING()
-                                             //SI tengo otra propiedad lo llamo con los "" y el nombre, por ejemplo = "Mostrar"
-            _lBoxCuentas.ValueMember = "";
-        }
+
 
 
     }
